@@ -31,9 +31,9 @@
 
 ## Current Phase
 
-**Phase:** Pre-build — files not yet created
-**Started:** —
-**Last active session:** —
+**Phase:** Foundation Created
+**Started:** 2026-03-03
+**Last active session:** #1
 
 ---
 
@@ -41,7 +41,7 @@
 
 > This is the single most important line in the file. Update it at the end of every session.
 
-**→ Begin Phase 1: Create `assets/css/main.css` with full design system per `website.md`.**
+**→ Begin Phase 2: Build `index.html` landing page with two tiles.**
 
 ---
 
@@ -50,8 +50,9 @@
 Track every file. Check off when complete AND passing its checkpoint criteria (see `website.md` Build Sequence).
 
 ### Foundation
-- [ ] `assets/css/main.css` — full design system
-- [ ] `assets/js/main.js` — nav, scroll, PDF fallback stubs
+- [x] `assets/css/main.css` — full design system
+- [x] `assets/js/main.js` — nav, scroll, PDF fallback stubs
+
 
 ### Root
 - [ ] `index.html` — landing page, two tiles

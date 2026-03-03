@@ -1,38 +1,564 @@
-/* ============================================================
-   main.css — InkInsightHub
-   Single shared stylesheet for all pages and subsites.
-   See website.md for full design system specification.
-   All @media queries go in section 16 — never inline.
-   ============================================================ */
-
 /* ── 1. Reset         ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html                   { -webkit-text-size-adjust: 100%; }
+body                   { min-height: 100vh; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+input, button, textarea, select  { font: inherit; }
+p, h1, h2, h3, h4, h5, h6       { overflow-wrap: break-word; }
+a                                { color: inherit; text-decoration: none; }
 
-/* ── 2. Tokens        ── */   /* :root variables */
+/* Smooth scroll — motion-safe only */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
 
-/* ── 3. Accent Scope  ── */   /* [data-accent] overrides */
+/* List reset — UI components only. Do NOT apply to content lists. */
+.nav-links,
+.footer-nav { list-style: none; }
 
-/* ── 4. Typography    ── */   /* .t-* classes */
+/* ── 2. Tokens        ── */
+:root {
+  /* ── Palette ── */
+  --color-base:       #0f1923;
+  --color-base-rgb:   15 25 35;    /* space-separated — use as rgb(var(--color-base-rgb) / alpha) */
+  --color-surface:    #1c2b3a;
+  --color-surface-2:  #243447;
+  --color-border:     rgba(232, 237, 242, 0.08);
 
-/* ── 5. Layout        ── */   /* .container, .section */
+  /* ── Text ── */
+  --color-text-primary:   #e8edf2;
+  --color-text-secondary: #8a9bb0;
+  --color-text-muted:     #4a5a6a;
+
+  /* ── Accent — overridden per subsite (see below) ── */
+  --color-accent:         #e8edf2;   /* fallback only — never used directly */
+  --color-accent-neha:    #3a9e8f;   /* teal */
+  --color-accent-arunabh: #c9a84c;   /* amber */
+
+  /* ── Typography ── */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
+
+  /* ── Spacing ── */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  32px;
+  --space-xl:  64px;
+  --space-2xl: 128px;
+
+  /* ── Layout ── */
+  --max-width:     1200px;
+  --content-width: 760px;
+
+  /* ── Transitions ── */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
+  --transition-slow: 0.4s ease;
+
+  /* ── Z-index ── */
+  --z-base:    0;
+  --z-raised:  10;
+  --z-nav:     100;
+  --z-overlay: 200;
+  --z-modal:   300;
+  --z-toast:   400;
+}
+
+/* ── 3. Accent Scope  ── */
+[data-accent="neha"]    { --color-accent: var(--color-accent-neha); }
+[data-accent="arunabh"] { --color-accent: var(--color-accent-arunabh); }
+
+/* ── 4. Typography    ── */
+.t-display-xl     { font-family: var(--font-display); font-size: 72px; font-weight: 300; line-height: 1.05; letter-spacing: -0.02em; }
+.t-display-lg     { font-family: var(--font-display); font-size: 48px; font-weight: 300; line-height: 1.1;  letter-spacing: -0.01em; }
+.t-display-italic { font-family: var(--font-display); font-size: 48px; font-weight: 300; line-height: 1.1;  font-style: italic; }
+.t-heading        { font-family: var(--font-display); font-size: 28px; font-weight: 600; line-height: 1.2;  }
+.t-subheading     { font-family: var(--font-body);    font-size: 13px; font-weight: 500; line-height: 1.4;  letter-spacing: 0.08em; text-transform: uppercase; }
+.t-body           { font-family: var(--font-body);    font-size: 16px; font-weight: 300; line-height: 1.7;  }
+.t-caption        { font-family: var(--font-mono);    font-size: 12px; font-weight: 400; line-height: 1.5;  letter-spacing: 0.04em; }
+
+/* ── 5. Layout        ── */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+@media (min-width: 768px) { .container { padding-inline: var(--space-lg); } }
+.container--narrow { max-width: var(--content-width); }
+
+.section {
+  padding-block: var(--space-xl);
+}
+.section--surface {
+  background: var(--color-surface);
+}
+.section-header {
+  margin-bottom: var(--space-lg);
+}
+.section-eyebrow {
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+.section-intro {
+  max-width: var(--content-width);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-sm);
+}
 
 /* ── 6. Nav           ── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  background: var(--color-base);
+  transition: background var(--transition-base), box-shadow var(--transition-base);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: var(--space-md) var(--space-lg);
+  gap: var(--space-lg);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+.nav-link, .nav-home {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color var(--transition-fast);
+}
+.nav-link[aria-current="page"] {
+  color: var(--color-accent);
+}
 
 /* ── 7. Hero          ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-base);
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgb(var(--color-base-rgb) / 0.3), rgb(var(--color-base-rgb) / 0.85));
+}
+.hero-content {
+  position: relative;
+  z-index: var(--z-raised);
+  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-width: var(--content-width);
+  width: 100%;
+}
+.hero-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--color-accent);
+  margin-bottom: var(--space-md);
+  flex-shrink: 0;
+}
+.hero-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-cta {
+  margin-top: var(--space-md);
+  align-self: flex-start;
+}
+
+@media (min-width: 768px) {
+  .hero-avatar {
+    width: 120px;
+    height: 120px;
+  }
+  .hero-content {
+    padding-inline: var(--space-xl);
+  }
+}
 
 /* ── 8. Cards         ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+.card {
+  background: var(--color-surface);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-base), background var(--transition-base);
+}
+.card:hover {
+  background: var(--color-surface-2);
+  transform: translateY(-2px);
+}
+.card-accent-bar {
+  height: 3px;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+.card-thumbnail img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  display: block;
+}
+.card-body {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  flex: 1;
+}
+.card-eyebrow {
+  color: var(--color-text-muted);
+}
+.card-title {
+  color: var(--color-text-primary);
+}
+.card-desc {
+  color: var(--color-text-secondary);
+  flex: 1;
+}
+.card-link {
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: auto;
+}
+.card-thumbnail--placeholder {
+  background: var(--color-surface-2);
+}
 
-/* ── 9. Tiles         ── */   /* landing page tiles */
+/* ── 9. Tiles         ── */
+.tile-container {
+  display: flex;
+  height: 100vh;
+}
+.tile {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-xl) var(--space-lg);
+  background: var(--color-base);
+  transition: background var(--transition-base);
+  text-decoration: none;
+}
+.tile[data-person="neha"] .tile-rule {
+  background: var(--color-accent-neha);
+}
+.tile[data-person="arunabh"] .tile-rule {
+  background: var(--color-accent-arunabh);
+}
+.tile-rule {
+  width: 40px;
+  height: 3px;
+  margin-bottom: var(--space-md);
+}
+.tile-name {
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+.tile-role {
+  color: var(--color-text-secondary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 
 /* ── 10. Buttons      ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast),
+              border-color var(--transition-fast), opacity var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-base);
+  border-color: var(--color-accent);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border-color: var(--color-border);
+}
 
 /* ── 11. Footer       ── */
+.site-footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: var(--space-lg);
+}
+.footer-copy {
+  color: var(--color-text-muted);
+}
+.footer-link {
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+.footer-link:hover {
+  color: var(--color-accent);
+}
+.footer-nav {
+  display: flex;
+  gap: var(--space-md);
+}
+
+@media (max-width: 479px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-nav {
+    justify-content: center;
+  }
+}
 
 /* ── 12. PDF Embed    ── */
+.pdf-fallback {
+  display: none;
+}
+.pdf-failed .pdf-embed {
+  display: none;
+}
+.pdf-failed .pdf-fallback {
+  display: block;
+}
+.pdf-embed-wrapper {
+  width: 100%;
+  position: relative;
+}
+.pdf-embed {
+  width: 100%;
+  height: 400px;
+  border: none;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .pdf-embed {
+    height: 560px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pdf-embed {
+    height: 720px;
+  }
+}
 
 /* ── 13. Scheduling   ── */
+.scheduling-embed-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+@media (min-width: 768px) {
+  .scheduling-embed-wrapper {
+    aspect-ratio: 16/9;
+  }
+}
+.scheduling-embed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 
-/* ── 14. Reveal       ── */   /* scroll animation */
+/* ── 14. Reveal       ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* ── 15. Utilities    ── */
+/* Nav hover/focus states */
+.nav-link:hover, .nav-link:focus-visible {
+  color: var(--color-accent);
+}
+.nav-home:hover, .nav-home:focus-visible {
+  color: var(--color-text-secondary);
+}
 
-/* ── 16. Responsive   ── */   /* all @media queries here */
+/* Card hover/focus states */
+.card:hover {
+  background: var(--color-surface-2);
+  transform: translateY(-2px);
+}
+.card-link:hover,
+.card-link:focus-visible {
+  color: var(--color-accent);
+}
+
+/* Tile hover states */
+.tile:hover {
+  background: var(--color-surface);
+}
+.tile[data-person="neha"]:hover .tile-name {
+  color: var(--color-accent-neha);
+}
+.tile[data-person="arunabh"]:hover .tile-name {
+  color: var(--color-accent-arunabh);
+}
+
+/* Button hover/focus states */
+.btn-primary:hover {
+  opacity: 0.88;
+}
+.btn-outline:hover {
+  background: var(--color-accent);
+  color: var(--color-base);
+}
+.btn-ghost:hover {
+  border-color: var(--color-text-secondary);
+  color: var(--color-text-primary);
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Sticky nav */
+.site-nav.nav-scrolled {
+  background: rgb(var(--color-base-rgb) / 0.95);
+  box-shadow: 0 1px 0 var(--color-border);
+}
+@supports (backdrop-filter: blur(8px)) {
+  .site-nav.nav-scrolled {
+    background: rgb(var(--color-base-rgb) / 0.85);
+    backdrop-filter: blur(8px);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── 16. Responsive   ── */
+/* Mobile-first responsive rules */
+
+/* Nav responsive behavior */
+.site-nav .nav-links {
+  display: none;
+}
+.site-nav.nav-open .nav-links {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .site-nav .nav-links {
+    display: flex;
+    flex-direction: row;
+  }
+  .nav-toggle {
+    display: none;
+  }
+}
+
+/* Hero responsive behavior */
+.hero-content {
+  padding-bottom: var(--space-2xl);
+}
+@media (min-width: 768px) {
+  .hero-content {
+    padding-inline: var(--space-xl);
+  }
+}
+
+/* Card grid responsive behavior */
+@media (min-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Landing page tile responsive behavior */
+@media (max-width: 767px) {
+  .tile-container {
+    flex-direction: column;
+    height: auto;
+  }
+}

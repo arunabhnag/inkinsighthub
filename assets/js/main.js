@@ -1,30 +1,12 @@
-/* ============================================================
-   main.js — InkInsightHub
-   Shared JS for all pages. Vanilla only — no frameworks.
-   Wrapped in IIFE to avoid polluting the global scope.
-   See website.md for full specification and behaviour notes.
-   ============================================================ */
+// Main JavaScript file for inkinsighthub.com
+// This file contains all JavaScript functionality for the portfolio hub
 
-(function () {
-  'use strict';
+console.log('init loaded');
 
-  /* Nav scroll — adds .nav-scrolled to .site-nav on scroll */
-  function initNavScroll() {}
+// Initialize the application when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+  // Application initialization code will go here
+  console.log('Ink Insights Hub initialized');
+});
 
-  /* Nav toggle — mobile hamburger open/close */
-  function initNavToggle() {}
-
-  /* Reveal — IntersectionObserver fade-up on .reveal elements */
-  function initReveal() {}
-
-  /* PDF fallback — shows .pdf-fallback if iframe fails to load */
-  function initPdfFallback() {}
-
-  document.addEventListener('DOMContentLoaded', () => {
-    initNavScroll();
-    initNavToggle();
-    initReveal();
-    initPdfFallback();
-  });
-
-}());
+// Add any global utility functions or event handlers here

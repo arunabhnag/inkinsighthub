@@ -27,6 +27,9 @@ If you believe a change is needed: **stop, flag it in a code comment, wait for h
 
 ## AMBIGUITY PROTOCOL — When You Encounter Something Not Covered Here
 
+This document should be read once at the beginning of each phase.
+Do not repeatedly reload or re-validate this file during the same task unless an architectural change is required.
+
 **Stop. Do not invent. Do not assume.**
 
 1. **Re-read this file** — the answer may be further down.
@@ -54,33 +57,70 @@ If `state.md` does not exist, create it from the template in the project root be
 
 ## Table of Contents
 
-1. [PROTECTED FILES](#protected-files--never-modify-without-explicit-human-instruction)
-2. [AMBIGUITY PROTOCOL](#ambiguity-protocol--when-you-encounter-something-not-covered-here)
-3. [SESSION START SEQUENCE](#session-start-sequence)
-4. [WHAT](#what)
-5. [WHY](#why)
-6. [HOW — File & Folder Structure](#how--file--folder-structure)
-7. [Design System — CSS Variables](#design-system--css-variables-source-of-truth)
-8. [CSS Reset Strategy](#css-reset-strategy)
-9. [Responsive Breakpoints](#responsive-breakpoints)
-10. [Typography Scale](#typography-scale)
-11. [Spacing Rhythm](#spacing-rhythm)
-12. [Layout & Section Patterns](#layout--section-patterns)
-13. [Component Patterns](#component-patterns)
-14. [Image & Media Conventions](#image--media-conventions)
-15. [Font Loading Strategy](#font-loading-strategy)
-16. [Page Content Specifications](#page-content-specifications)
-17. [V1 Scope — What Is Out of Scope](#v1-scope--what-is-out-of-scope)
-18. [Performance Budget](#performance-budget)
-19. [main.js Structure](#mainjs--structure--responsibilities)
-20. [SSG Readiness — Slot Conventions](#ssg-readiness--slot-conventions)
-21. [Page HTML Boilerplate](#page-html-boilerplate)
-22. [GitHub Pages Constraints](#github-pages-constraints)
-23. [Accessibility Baseline](#accessibility-baseline)
-24. [What AI Assistants Must NOT Do](#what-ai-assistants-must-not-do)
-25. [Placeholder Convention](#placeholder-convention)
-26. [Quick Reference](#quick-reference)
-27. [Versioning](#versioning)
+- [website.md — AI Coding Guide for inkinsighthub.com](#websitemd--ai-coding-guide-for-inkinsighthubcom)
+  - [PROTECTED FILES — Never Modify Without Explicit Human Instruction](#protected-files--never-modify-without-explicit-human-instruction)
+  - [AMBIGUITY PROTOCOL — When You Encounter Something Not Covered Here](#ambiguity-protocol--when-you-encounter-something-not-covered-here)
+  - [SESSION START SEQUENCE](#session-start-sequence)
+  - [Table of Contents](#table-of-contents)
+  - [WHAT](#what)
+  - [WHY](#why)
+  - [HOW — File \& Folder Structure](#how--file--folder-structure)
+    - [Rules](#rules)
+    - [Commenting Standard](#commenting-standard)
+    - [main.css Internal Section Order](#maincss-internal-section-order)
+    - [Build Sequence](#build-sequence)
+    - [Build Checkpoint Criteria](#build-checkpoint-criteria)
+  - [Design System — CSS Variables (source of truth)](#design-system--css-variables-source-of-truth)
+    - [Accent Color Scoping](#accent-color-scoping)
+  - [CSS Reset Strategy](#css-reset-strategy)
+  - [Responsive Breakpoints](#responsive-breakpoints)
+    - [Mobile Nav](#mobile-nav)
+    - [Responsive Rules for Card Grid and Tiles](#responsive-rules-for-card-grid-and-tiles)
+  - [Typography Scale](#typography-scale)
+  - [Spacing Rhythm](#spacing-rhythm)
+  - [Layout \& Section Patterns](#layout--section-patterns)
+    - [Container](#container)
+    - [Standard Page Section](#standard-page-section)
+  - [Component Patterns](#component-patterns)
+    - [Navigation](#navigation)
+    - [Hero Section](#hero-section)
+    - [Cards](#cards)
+    - [Featured Work Strip](#featured-work-strip)
+    - [Landing Tiles](#landing-tiles)
+    - [Buttons](#buttons)
+    - [Hover \& Focus States](#hover--focus-states)
+    - [Scroll \& Motion Behaviour](#scroll--motion-behaviour)
+    - [Footer](#footer)
+    - [Embedded PDF](#embedded-pdf)
+    - [Scheduling Embed (Consultation page)](#scheduling-embed-consultation-page)
+  - [Image \& Media Conventions](#image--media-conventions)
+  - [Font Loading Strategy](#font-loading-strategy)
+  - [Page Content Specifications](#page-content-specifications)
+    - [`index.html` — Landing](#indexhtml--landing)
+    - [`[person]/index.html` — Subsite hero](#personindexhtml--subsite-hero)
+    - [`[person]/portfolio.html`](#personportfoliohtml)
+    - [`[person]/resume.html`](#personresumehtml)
+    - [`nehababunag/consultation.html`](#nehababunagconsultationhtml)
+    - [`arunabhnag/whitepapers.html`](#arunabhnagwhitepapershtml)
+    - [`arunabhnag/articles.html`](#arunabhnagarticleshtml)
+    - [`404.html`](#404html)
+  - [V1 Scope — What Is Out of Scope](#v1-scope--what-is-out-of-scope)
+  - [Performance Budget](#performance-budget)
+  - [main.js — Structure \& Responsibilities](#mainjs--structure--responsibilities)
+  - [SSG Readiness — Slot Conventions](#ssg-readiness--slot-conventions)
+  - [Page HTML Boilerplate](#page-html-boilerplate)
+  - [GitHub Pages Constraints](#github-pages-constraints)
+  - [Accessibility Baseline](#accessibility-baseline)
+  - [What AI Assistants Must NOT Do](#what-ai-assistants-must-not-do)
+  - [Placeholder Convention](#placeholder-convention)
+  - [Quick Reference](#quick-reference)
+    - [Key CSS Variables](#key-css-variables)
+    - [Typography Classes](#typography-classes)
+    - [Component Classes](#component-classes)
+    - [data-accent Values](#data-accent-values)
+    - [Root-Relative Paths](#root-relative-paths)
+  - [Execution Rules](#execution-rules)
+  - [Versioning](#versioning)
 
 ---
 
@@ -1271,6 +1311,17 @@ The format is case-sensitive and must begin with exactly `[PLACEHOLDER:` — no 
 
 ---
 
+## Execution Rules
+
+1. This document defines high-level architecture and constraints.
+2. Do not repeatedly re-validate previously confirmed work.
+3. When requested file modifications are complete and state.md is updated, STOP.
+4. Do not continue reasoning or re-checking unless new instructions are provided.
+5. state.md should only be updated once per completed task.
+6. Do not re-open or re-interpret website.md unless architectural conflicts arise.
+
+---
+
 ## Versioning
 
 | Version | Date | Changes |
@@ -1288,5 +1339,8 @@ The format is case-sensitive and must begin with exactly `[PLACEHOLDER:` — no 
 | 2.0 | 2026-03-01 | Stress test 2: typography CSS; hero layout CSS; stagger delay CSS; section CSS block; footer CSS block; PDF height CSS; tile-container in HTML; index.html skeleton; `@media` placement note |
 | 2.1 | 2026-03-01 | Resume page simplified to PDF-embed-only for v1; consultation service cards clarified as standard `.card` pattern; `.tile-container` added to Quick Reference; versioning table cleaned up |
 | 2.2 | 2026-03-01 | Commenting standard added: every logical block in `main.css`, `main.js`, and HTML must have a useful comment written for a developer reading cold |
+| 2.3 | 2026-03-01 | Added `Do not repeatedly reload` ambiguity protocol - assisted by chatgpt |
+| 2.3 | 2026-03-01 | Added Execution Rules before versioning - assisted by chatgpt |
+
 
 If the project adopts a custom SSG, a new section will be appended. Existing conventions annotated `[v1]` or `[v2+]` where they diverge.
