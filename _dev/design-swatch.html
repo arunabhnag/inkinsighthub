@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InkInsightHub — Design System Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-base:            #0f1923;
+    --color-base-rgb:        15 25 35;
+    --color-surface:         #1c2b3a;
+    --color-surface-2:       #243447;
+    --color-border:          rgba(232, 237, 242, 0.08);
+    --color-text-primary:    #e8edf2;
+    --color-text-secondary:  #8a9bb0;
+    --color-text-muted:      #4a5a6a;
+    --color-accent-neha:     #3a9e8f;
+    --color-accent-arunabh:  #c9a84c;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body:    'DM Sans', system-ui, sans-serif;
+    --font-mono:    'DM Mono', 'Courier New', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--color-base);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-weight: 300;
+    min-height: 100vh;
+    padding: 60px 40px;
+    line-height: 1.6;
+  }
+
+  .page-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 60px;
+  }
+
+  /* ── Section Header ── */
+  .section {
+    margin-bottom: 64px;
+  }
+  .section-title {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* ── Color Swatches ── */
+  .swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .swatch {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .swatch-block {
+    width: 120px;
+    height: 72px;
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+  }
+  .swatch-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--color-text-secondary);
+  }
+  .swatch-name {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    margin-bottom: 2px;
+  }
+
+  .swatch-block.base      { background: #0f1923; }
+  .swatch-block.surface   { background: #1c2b3a; }
+  .swatch-block.surface2  { background: #243447; }
+  .swatch-block.neha      { background: #3a9e8f; }
+  .swatch-block.arunabh   { background: #c9a84c; }
+  .swatch-block.text-p    { background: #e8edf2; }
+  .swatch-block.text-s    { background: #8a9bb0; }
+  .swatch-block.text-m    { background: #4a5a6a; }
+
+  /* ── Accent stripe ── */
+  .accent-stripe {
+    height: 3px;
+    width: 40px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  /* ── Typography ── */
+  .type-row {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .type-row:last-child { border-bottom: none; }
+
+  .type-meta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--color-text-muted);
+    letter-spacing: 0.15em;
+    margin-bottom: 10px;
+  }
+
+  .t-display-xl {
+    font-family: var(--font-display);
+    font-size: 72px;
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--color-text-primary);
+  }
+  .t-display-italic {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.1;
+    color: var(--color-text-secondary);
+  }
+  .t-heading {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--color-text-primary);
+  }
+  .t-subheading {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+  .t-body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+  .t-caption {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--color-text-muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Accent colored text ── */
+  .neha-text   { color: var(--color-accent-neha); }
+  .arunabh-text { color: var(--color-accent-arunabh); }
+
+  /* ── UI Components ── */
+  .components-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .component-panel {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 32px;
+  }
+  .component-panel-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 20px;
+  }
+
+  /* Buttons — shown in both accent contexts */
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .btn {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+    text-decoration: none;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+  }
+  /* Neha context (teal accent) */
+  .btn-primary-neha  { background: var(--color-accent-neha);  color: var(--color-base); border-color: var(--color-accent-neha); }
+  .btn-outline-neha  { background: transparent; color: var(--color-accent-neha);  border-color: var(--color-accent-neha); }
+  /* Arunabh context (amber accent) */
+  .btn-primary-arunabh { background: var(--color-accent-arunabh); color: var(--color-base); border-color: var(--color-accent-arunabh); }
+  .btn-outline-arunabh { background: transparent; color: var(--color-accent-arunabh); border-color: var(--color-accent-arunabh); }
+  /* Ghost — accent-agnostic */
+  .btn-ghost { background: transparent; color: var(--color-text-secondary); border-color: var(--color-border); }
+
+  /* Nav */
+  .nav-preview {
+    background: rgba(15,25,35,0.95);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    border-radius: 4px;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    letter-spacing: 0.02em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links li {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+  .nav-links li.active-neha   { color: var(--color-accent-neha); }
+  .nav-links li.active-arunabh { color: var(--color-accent-arunabh); }
+
+  /* Card */
+  .card-preview {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .card-accent-bar {
+    height: 3px;
+  }
+  .card-accent-bar.neha    { background: var(--color-accent-neha); }
+  .card-accent-bar.arunabh { background: var(--color-accent-arunabh); }
+  .card-body-pad { padding: 24px; }
+  .card-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 8px;
+  }
+  .card-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+  }
+
+  /* Landing tile preview */
+  .tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 200px;
+  }
+  .tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px;
+    position: relative;
+    background: var(--color-surface);
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .tile::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+  }
+  .tile.neha::before    { background: var(--color-accent-neha); }
+  .tile.arunabh::before { background: var(--color-accent-arunabh); }
+  .tile-rule {
+    width: 32px;
+    height: 3px;
+    margin-bottom: 12px;
+  }
+  .tile-rule.neha    { background: var(--color-accent-neha); }
+  .tile-rule.arunabh { background: var(--color-accent-arunabh); }
+  .tile-name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+  }
+  .tile-role {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .tile-role.neha    { color: var(--color-accent-neha); }
+  .tile-role.arunabh { color: var(--color-accent-arunabh); }
+</style>
+</head>
+<body>
+
+<div class="page-label">inkinsighthub.com — Design System Preview</div>
+
+<!-- COLORS -->
+<div class="section">
+  <div class="section-title">Color System</div>
+  <div class="swatches">
+    <div class="swatch">
+      <div class="swatch-block base"></div>
+      <div><div class="swatch-name">Base</div><div class="swatch-label">#0f1923</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block surface"></div>
+      <div><div class="swatch-name">Surface</div><div class="swatch-label">#1c2b3a</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block surface2"></div>
+      <div><div class="swatch-name">Surface 2</div><div class="swatch-label">#243447</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block text-p"></div>
+      <div><div class="swatch-name">Text Primary</div><div class="swatch-label">#e8edf2</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block text-s"></div>
+      <div><div class="swatch-name">Text Secondary</div><div class="swatch-label">#8a9bb0</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block text-m"></div>
+      <div><div class="swatch-name">Text Muted</div><div class="swatch-label">#4a5a6a</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block neha"></div>
+      <div><div class="swatch-name neha-text">Neha — Teal</div><div class="swatch-label">#3a9e8f</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block arunabh"></div>
+      <div><div class="swatch-name arunabh-text">Arunabh — Amber</div><div class="swatch-label">#c9a84c</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TYPOGRAPHY -->
+<div class="section">
+  <div class="section-title">Typography — Cormorant Garamond (display) + DM Sans (body) + DM Mono (labels)</div>
+
+  <div class="type-row">
+    <div class="type-meta">Display XL — Cormorant Garamond 300, 72px</div>
+    <div class="t-display-xl">Service Delivery</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">Display LG — Cormorant Garamond 300, 48px</div>
+    <div class="t-display-lg">Technical Writing Leadership</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">Display Italic — Cormorant Garamond 300 italic, 48px — used for subtitles / taglines</div>
+    <div class="t-display-italic">Turning complexity into clarity</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">Section Heading — Cormorant Garamond 600, 28px</div>
+    <div class="t-heading">Portfolio</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">Subheading / Eyebrow — DM Sans 500, 13px, uppercase tracked</div>
+    <div class="t-subheading">Case Studies</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">Body — DM Sans 300, 16px, 1.75 leading</div>
+    <div class="t-body">A seasoned leader with over a decade of experience designing and scaling service delivery frameworks across enterprise environments. Specialises in translating operational complexity into structured, measurable outcomes.</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">Caption / Label — DM Mono 400, 12px</div>
+    <div class="t-caption">Last updated · March 2026 · Available for consultation</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">Accent colored headings — per-person identity</div>
+    <div style="display:flex; gap: 40px; align-items: baseline;">
+      <div class="t-heading neha-text">Neha Babunag</div>
+      <div class="t-heading arunabh-text">Arunabh Nag</div>
+    </div>
+  </div>
+</div>
+
+<!-- LANDING TILES -->
+<div class="section">
+  <div class="section-title">Landing Page — Tile Preview</div>
+  <div class="tiles">
+    <div class="tile neha">
+      <div class="tile-rule neha"></div>
+      <div class="tile-name">Neha Babunag</div>
+      <div class="tile-role neha">Service Delivery Leadership</div>
+    </div>
+    <div class="tile arunabh">
+      <div class="tile-rule arunabh"></div>
+      <div class="tile-name">Arunabh Nag</div>
+      <div class="tile-role arunabh">Technical Writing Leadership</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPONENTS -->
+<div class="section">
+  <div class="section-title">UI Components</div>
+  <div class="components-grid">
+
+    <!-- Nav -->
+    <div style="grid-column: 1/-1;">
+      <div class="component-panel-label">Navigation — Neha context (teal active)</div>
+      <div class="nav-preview">
+        <div class="nav-logo">Neha Babunag</div>
+        <ul class="nav-links">
+          <li class="active-neha">Portfolio</li>
+          <li>Resume</li>
+          <li>Consultation</li>
+          <li style="color: var(--color-text-muted); font-size:9px;">↖ inkinsighthub</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Buttons Neha -->
+    <div class="component-panel">
+      <div class="component-panel-label">Buttons — Neha context (teal) · .btn-primary / .btn-outline / .btn-ghost</div>
+      <div class="btn-row">
+        <button class="btn btn-primary-neha">Primary</button>
+        <button class="btn btn-outline-neha">Outline</button>
+        <button class="btn btn-ghost">Ghost</button>
+      </div>
+    </div>
+
+    <!-- Buttons Arunabh -->
+    <div class="component-panel">
+      <div class="component-panel-label">Buttons — Arunabh context (amber) · .btn-primary / .btn-outline / .btn-ghost</div>
+      <div class="btn-row">
+        <button class="btn btn-primary-arunabh">Primary</button>
+        <button class="btn btn-outline-arunabh">Outline</button>
+        <button class="btn btn-ghost">Ghost</button>
+      </div>
+    </div>
+
+    <!-- Card Neha -->
+    <div class="component-panel" style="padding:0;">
+      <div class="component-panel-label" style="padding: 20px 24px 0;">Portfolio Card — Neha</div>
+      <div style="padding: 12px 24px 24px;">
+        <div class="card-preview">
+          <div class="card-accent-bar neha"></div>
+          <div class="card-body-pad">
+            <div class="card-eyebrow neha-text">Case Study · 2024</div>
+            <div class="card-title">Enterprise SLA Transformation</div>
+            <div class="card-desc">Redesigned the incident management lifecycle across 6 regional teams, reducing mean resolution time by 38%.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Arunabh -->
+    <div class="component-panel" style="padding:0;">
+      <div class="component-panel-label" style="padding: 20px 24px 0;">Portfolio Card — Arunabh</div>
+      <div style="padding: 12px 24px 24px;">
+        <div class="card-preview">
+          <div class="card-accent-bar arunabh"></div>
+          <div class="card-body-pad">
+            <div class="card-eyebrow arunabh-text">Whitepaper · 2025</div>
+            <div class="card-title">Docs-as-Code at Scale</div>
+            <div class="card-desc">A framework for adopting developer-native documentation pipelines in mid-to-large engineering organisations.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
