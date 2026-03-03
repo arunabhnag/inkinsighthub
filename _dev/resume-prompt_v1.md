@@ -1,4 +1,4 @@
-# Resume-Prompt by ChatGPT
+# Resume-Prompt v1 by ChatGPT
 
 /no_think
 
