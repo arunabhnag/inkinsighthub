@@ -10,7 +10,7 @@
 
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://inkinsighthub.com/">
-  <meta property="og:title"       content="InkInsightHub">
+  <meta property="og:title"       content="Ink and Insight Hub">
   <meta property="og:description" content="[PLACEHOLDER: shared — landing page meta description]">
   <meta property="og:image"       content="https://inkinsighthub.com/assets/images/shared/og-image.jpg">
   <meta name="twitter:card"       content="summary_large_image">
@@ -19,25 +19,44 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body data-accent="landing">
 
   <!-- Landing nav — logo only, no nav links (see website.md Navigation) -->
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/" class="nav-logo">InkInsightHub</a>
+      <a href="/" class="nav-logo">INK AND INSIGHT HUB</a>
     </div>
   </nav>
 
   <main id="main-content">
     <!-- Tiles fill the full viewport — no footer on this page -->
     <div class="tile-container">
-      <!-- Neha tile -->
-      <!-- Arunabh tile -->
+      <a href="./nehababunag/" class="tile" data-person="neha">
+        <div class="tile-rule"></div>
+        <h2 class="tile-name t-display-lg">NEHA BABU NAG</h2>
+        <p class="tile-role t-subheading">Service Delivery Leadership</p>
+      </a>
+      <a href="./arunabhnag/" class="tile" data-person="arunabh">
+        <div class="tile-rule"></div>
+        <h2 class="tile-name t-display-lg">ARUNABH NAG</h2>
+        <p class="tile-role t-subheading">Technical Writing Leadership</p>
+      </a>
     </div>
   </main>
 
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="copyright">&copy; 2026 InkInsightHub. All rights reserved.</p>
+      <nav class="footer-nav" role="navigation" aria-label="Footer navigation">
+        <ul class="footer-links">
+          <li><a href="./nehababunag/" data-person="neha">Neha Babu Nag</a></li>
+          <li><a href="./arunabhnag/" data-person="arunabh">Arunabh Nag</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

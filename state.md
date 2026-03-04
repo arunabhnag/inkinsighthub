@@ -41,7 +41,7 @@
 
 > This is the single most important line in the file. Update it at the end of every session.
 
-**→ Begin Phase 2: Build `index.html` landing page with two tiles.**
+**→ Build `404.html` error page.**
 
 ---
 
@@ -55,9 +55,9 @@ Track every file. Check off when complete AND passing its checkpoint criteria (s
 
 
 ### Root
-- [ ] `index.html` — landing page, two tiles
+- [x] `index.html` <main> — landing page, two tiles
+- [x] `index.html` <footer>
 - [ ] `404.html` — error page
-
 ### Neha Babunag (`/nehababunag/`)
 - [ ] `nehababunag/index.html` — hero page
 - [ ] `nehababunag/portfolio.html`
@@ -100,7 +100,7 @@ Manual checks:
 
 | File | Completed | Session notes |
 |------|-----------|---------------|
-| — | — | — |
+| `index.html` | 2026-03-03 | Phase 2 complete: Landing page with two tiles as per checkpoint criteria in website.md |
 
 ---
 
