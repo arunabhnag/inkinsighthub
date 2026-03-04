@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ArrowLeft, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
-import { PROFILES } from '../constants';
+import { PROFILES, Profile } from '../constants';
 
 interface NavbarProps {
   profileId?: 'neha' | 'arunabh';
@@ -130,18 +130,24 @@ export const Navbar: React.FC<NavbarProps> = ({ profileId, name, accentColor }) 
   );
 };
 
-export const Footer: React.FC = () => (
+interface FooterProps {
+  profile?: Profile;
+}
+
+export const Footer: React.FC<FooterProps> = ({ profile }) => (
   <footer className="py-12 px-6 md:px-12 border-t border-border bg-base">
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
       <div className="text-center md:text-left">
-        <h3 className="font-display text-xl font-semibold text-text-primary mb-2">InkInsightHub</h3>
+        <h3 className="font-display text-xl font-semibold text-text-primary mb-2">Ink & Insight Hub</h3>
         <p className="text-text-muted text-xs font-mono uppercase tracking-widest">© 2026 · Professional Leadership Portfolios</p>
       </div>
       <div className="flex gap-6">
         <Link to="/projects" className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">Projects</Link>
-        <a href="#" className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">LinkedIn</a>
-        <a href="#" className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">Medium</a>
-        <a href="#" className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">Email</a>
+        <a href={profile?.linkedinUrl || "#"} className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">LinkedIn</a>
+        {profile?.showMediumLink && (
+          <a href="#" className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">Medium</a>
+        )}
+        <a href={profile ? `mailto:${profile.email}` : "#"} className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">Email</a>
       </div>
     </div>
   </footer>

@@ -33,15 +33,15 @@ export const LandingPage: React.FC = () => {
             transition={{ delay: 0.2 }}
           >
             <div className="w-12 h-[2px] bg-accent-neha mb-8" />
-            <h1 className="text-5xl md:text-7xl font-display font-light text-text-primary mb-4">
-              Neha <br /> Babu Nag
+            <h1 className="text-5xl md:text-7xl font-display font-light text-text-primary mb-4 uppercase">
+              NEHA <br /> BABU NAG
             </h1>
             <p className="text-accent-neha font-mono text-xs uppercase tracking-[0.25em] mb-4">
               Service Delivery Leadership
             </p>
             <div className="flex items-center gap-2 text-accent-neha/70 font-mono text-[9px] uppercase tracking-widest mb-12">
               <MapPin size={12} />
-              <span>Mexican Permanent Residency</span>
+              <span className="font-bold">Mexican Permanent Residency</span>
             </div>
             <div className="flex items-center gap-3 text-text-muted group-hover:text-text-primary transition-colors">
               <span className="font-mono text-[10px] uppercase tracking-widest">Enter Portfolio</span>
@@ -64,15 +64,15 @@ export const LandingPage: React.FC = () => {
             transition={{ delay: 0.4 }}
           >
             <div className="w-12 h-[2px] bg-accent-arunabh mb-8" />
-            <h1 className="text-5xl md:text-7xl font-display font-light text-text-primary mb-4">
-              Arunabh <br /> Nag
+            <h1 className="text-5xl md:text-7xl font-display font-light text-text-primary mb-4 uppercase">
+              ARUNABH <br /> NAG
             </h1>
             <p className="text-accent-arunabh font-mono text-xs uppercase tracking-[0.25em] mb-4">
               Technical Writing Leadership
             </p>
             <div className="flex items-center gap-2 text-accent-arunabh/70 font-mono text-[9px] uppercase tracking-widest mb-12">
               <MapPin size={12} />
-              <span>Mexican Permanent Residency</span>
+              <span className="font-bold">Mexican Permanent Residency</span>
             </div>
             <div className="flex items-center gap-3 text-text-muted group-hover:text-text-primary transition-colors">
               <span className="font-mono text-[10px] uppercase tracking-widest">Enter Portfolio</span>

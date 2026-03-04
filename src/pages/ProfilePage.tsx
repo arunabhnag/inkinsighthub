@@ -80,9 +80,9 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ profile }) => {
               <div className="absolute inset-0 bg-gradient-to-t from-base via-transparent to-transparent" />
             </div>
             {/* Floating Stats/Badge */}
-            <div className="absolute -bottom-6 -right-6 bg-surface-2 p-6 border border-border rounded-sm hidden md:block">
+            <div className="absolute -bottom-3 -right-3 md:-bottom-6 md:-right-6 bg-surface-2 p-4 md:p-6 border border-border rounded-sm block">
               <p className="font-mono text-[10px] text-text-muted uppercase tracking-widest mb-1">Experience</p>
-              <p className="text-2xl font-display font-semibold text-text-primary">12+ Years</p>
+              <p className="text-xl md:text-2xl font-display font-semibold text-text-primary">12+ Years</p>
             </div>
           </motion.div>
         </div>
@@ -154,56 +154,65 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ profile }) => {
         <div className="max-w-7xl mx-auto">
           <SectionHeader title="Career Trajectory" eyebrow="Resume" accentColor={profile.accentColor} />
           
-          <div className="grid lg:grid-cols-3 gap-12">
-            {/* HTML Resume Summary */}
-            <div className="lg:col-span-1 space-y-8">
-              {profile.resumeSections.map((section) => (
-                <div key={section.id} className="bg-surface p-8 border border-border rounded-sm">
-                  <h4 className="font-display text-xl font-semibold text-text-primary mb-4">{section.title}</h4>
-                  
-                  {section.layout === 'bullets' ? (
-                    <ul className="space-y-3">
-                      {section.items.map((item, idx) => (
-                        <li key={idx} className="flex items-center gap-3 text-text-secondary text-sm">
-                          <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: profile.accentColor }} />
-                          {item.primary}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <div className="space-y-4">
-                      {section.items.map((item, idx) => (
-                        <div key={idx}>
-                          <p className="text-text-primary text-sm font-semibold">{item.primary}</p>
-                          {item.secondary && <p className="text-text-muted text-xs">{item.secondary}</p>}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-              
-              <a 
-                href={profile.resumeUrl} 
-                download 
-                className="flex items-center justify-center gap-3 w-full py-4 bg-surface-2 border border-border text-text-primary font-mono text-xs uppercase tracking-widest hover:bg-surface transition-all"
-              >
-                <Download size={16} />
-                Download PDF Resume
-              </a>
-            </div>
+          <div className="mb-12">
+            <a 
+              href={profile.resumeUrl} 
+              download 
+              className="inline-flex items-center gap-3 px-8 py-4 bg-surface-2 border border-border text-text-primary font-mono text-xs uppercase tracking-widest hover:bg-surface transition-all rounded-sm"
+            >
+              <Download size={16} />
+              Download PDF Resume
+            </a>
+          </div>
 
-            {/* Embedded PDF Preview */}
-            <div className="lg:col-span-2">
-              <div className="aspect-[1/1.4] bg-surface-2 border border-border rounded-sm overflow-hidden relative group">
-                <iframe 
-                  src={`${profile.resumeUrl}#toolbar=0&navpanes=0&scrollbar=0`} 
-                  className="w-full h-full border-none opacity-80 group-hover:opacity-100 transition-opacity"
-                  title="Resume Preview"
-                />
-                <div className="absolute inset-0 pointer-events-none border-4 border-border/50" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {profile.resumeSections.filter(s => s.isVisible).map((section) => (
+              <div 
+                key={section.id} 
+                className={`bg-surface p-8 border border-border rounded-sm ${
+                  section.layout === 'summary' || section.id === 'experience' ? 'md:col-span-2' : ''
+                }`}
+              >
+                <h4 className="font-display text-xl font-semibold text-text-primary mb-6 flex items-center gap-3">
+                  <div className="w-8 h-[1px]" style={{ backgroundColor: profile.accentColor }} />
+                  {section.title}
+                </h4>
+                
+                {section.layout === 'bullets' ? (
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {section.items.map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-3 text-text-secondary text-sm">
+                        <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: profile.accentColor }} />
+                        {item.primary}
+                      </li>
+                    ))}
+                  </ul>
+                ) : section.layout === 'summary' ? (
+                  <p className="text-text-secondary leading-relaxed max-w-4xl">
+                    {section.items[0].primary}
+                  </p>
+                ) : (
+                  <div className="space-y-8">
+                    {section.items.map((item, idx) => (
+                      <div key={idx} className="relative pl-8 border-l border-border/50">
+                        <div className="absolute -left-[5px] top-2 w-2 h-2 rounded-full" style={{ backgroundColor: profile.accentColor }} />
+                        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-3">
+                          <h5 className="text-text-primary font-semibold text-lg">{item.primary}</h5>
+                          {item.secondary && (
+                            <span className="font-mono text-[10px] text-text-muted uppercase tracking-widest bg-base px-2 py-1 rounded-sm border border-border">
+                              {item.secondary}
+                            </span>
+                          )}
+                        </div>
+                        {item.description && (
+                          <p className="text-text-secondary text-sm leading-relaxed max-w-4xl">{item.description}</p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -216,24 +225,26 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ profile }) => {
             Available for strategic consulting, leadership coaching, and speaking engagements. 
             Reach out to discuss how we can drive excellence in your organisation.
           </p>
-          <div className="grid md:grid-cols-3 gap-6">
-            <a href="mailto:contact@inkinsighthub.com" className="p-8 bg-surface border border-border rounded-sm hover:border-text-muted/20 transition-all group">
+          <div className={`grid ${profile.showBookACall ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-6`}>
+            <a href={`mailto:${profile.email}`} className="p-8 bg-surface border border-border rounded-sm hover:border-text-muted/20 transition-all group">
               <Mail size={24} className="mx-auto mb-4 text-text-muted group-hover:text-text-primary transition-colors" />
               <p className="font-mono text-[10px] uppercase tracking-widest text-text-muted">Email</p>
             </a>
-            <a href="#" className="p-8 bg-surface border border-border rounded-sm hover:border-text-muted/20 transition-all group">
+            <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer" className="p-8 bg-surface border border-border rounded-sm hover:border-text-muted/20 transition-all group">
               <Linkedin size={24} className="mx-auto mb-4 text-text-muted group-hover:text-text-primary transition-colors" />
               <p className="font-mono text-[10px] uppercase tracking-widest text-text-muted">LinkedIn</p>
             </a>
-            <a href="#" className="p-8 bg-surface border border-border rounded-sm hover:border-text-muted/20 transition-all group">
-              <Calendar size={24} className="mx-auto mb-4 text-text-muted group-hover:text-text-primary transition-colors" />
-              <p className="font-mono text-[10px] uppercase tracking-widest text-text-muted">Book a Call</p>
-            </a>
+            {profile.showBookACall && (
+              <a href="#" className="p-8 bg-surface border border-border rounded-sm hover:border-text-muted/20 transition-all group">
+                <Calendar size={24} className="mx-auto mb-4 text-text-muted group-hover:text-text-primary transition-colors" />
+                <p className="font-mono text-[10px] uppercase tracking-widest text-text-muted">Book a Call</p>
+              </a>
+            )}
           </div>
         </div>
       </section>
 
-      <Footer />
+      <Footer profile={profile} />
     </div>
   );
 };

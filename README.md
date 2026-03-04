@@ -26,17 +26,27 @@ Add or modify objects within the `projects` array. Each project needs:
 ## 2. Toggling Sections On/Off
 The visibility of certain sections is controlled by the presence of data or conditional logic in `src/pages/ProfilePage.tsx`.
 
-### Resume Sections (Competencies, Education, etc.)
-The resume sidebar is fully dynamic. You can add, remove, or reorder sections in `src/constants.ts`.
+### Resume Sections (Summary, Experience, Education, etc.)
+The resume is now fully HTML-based and dynamic. You can manage sections in `src/constants.ts` within the `resumeSections` array.
 - **To add a section:** Add a new object to the `resumeSections` array.
 - **To remove a section:** Delete the object from the `resumeSections` array.
-- **Layouts:** Use `layout: 'bullets'` for simple lists or `layout: 'details'` for items with subtitles (like education).
+- **To toggle visibility:** Set `isVisible: true` or `false` on any section.
+- **Layouts:** 
+    - `layout: 'summary'`: Best for a single paragraph of text.
+    - `layout: 'details'`: Best for experience or education with dates and descriptions.
+    - `layout: 'bullets'`: Best for skills or competencies in a grid format.
+- **Reordering:** Simply move the objects within the `resumeSections` array to change their display order on the page.
 
 ### Whitepapers and Blogs Section
 This section is automatically hidden if the `whitepapers` key is missing or empty in `src/constants.ts`. 
 - **To enable:** Add a `whitepapers: [...]` array to the profile in `constants.ts`.
 - **To disable:** Remove the `whitepapers` key or set it to `undefined`.
 - **Note:** This section is independent for each profile; you can have different content for Neha and Arunabh.
+
+### Medium Link and Book a Call
+You can toggle the visibility of the Medium link (in the footer) and the "Book a Call" card (in the Consultation section) directly in `src/constants.ts`:
+- `showMediumLink`: Set to `true` to show the Medium link in the footer, or `false` to hide it.
+- `showBookACall`: Set to `true` to show the "Book a Call" option in the Consultation section, or `false` to hide it.
 
 ### Other Sections (Portfolio, Resume, Consultation)
 To manually hide these sections, open `src/pages/ProfilePage.tsx` and comment out or remove the corresponding `<section>` block:
