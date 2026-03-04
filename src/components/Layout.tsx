@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ArrowLeft, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { PROFILES } from '../constants';
 
 interface NavbarProps {
   profileId?: 'neha' | 'arunabh';
@@ -20,7 +21,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profileId, name, accentColor }) 
     { name: 'Portfolio', href: `#portfolio` },
     { name: 'Resume', href: `#resume` },
     { name: 'Consultation', href: `#consultation` },
-    ...(profileId === 'arunabh' ? [{ name: 'Whitepapers', href: `#whitepapers` }] : [])
+    ...(PROFILES[profileId].whitepapers ? [{ name: 'Whitepapers and Blogs', href: `#whitepapers` }] : [])
   ] : [];
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

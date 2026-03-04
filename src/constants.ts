@@ -55,7 +55,7 @@ export const EXTRA_PROJECTS: ExtraProject[] = [
   {
     id: 'battery-intelligence',
     title: 'Battery Intelligence',
-    description: 'A simple utility to understand your powercfg /batteryhealth report.',
+    description: 'A simple utility to understand your powercfg /batteryreport HTML file.',
     thumbnailUrl: '/extras/battery-intelligence.png',
     path: '/extras/battery-intelligence.html',
     isVisible: true
@@ -90,8 +90,8 @@ export const PROFILES: Record<string, Profile> = {
         title: 'Education',
         layout: 'details',
         items: [
-          { primary: 'Master of Business Administration', secondary: 'University of Technology · 2012' },
-          { primary: 'B.S. in Computer Science', secondary: 'State Engineering College · 2009' }
+          { primary: 'Bachelor of Technology - Electronics and Communication Engineering', secondary: 'KURUKSHETRA UNIVERSITY · 2010' }//,
+          //{ primary: 'B.S. in Computer Science', secondary: 'State Engineering College · 2009' }
         ]
       }
     ],
@@ -111,6 +111,15 @@ export const PROFILES: Record<string, Profile> = {
         year: '2023',
         description: 'Led the multi-phase migration of 50,000 users to a consolidated ServiceNow instance, achieving a 92% CSAT score during the transition period.',
         tags: ['ServiceNow', 'Change Management', 'User Experience']
+      }
+    ],
+    whitepapers: [
+      {
+        id: 'n1',
+        title: 'Scaling Service Excellence in Hybrid Environments',
+        date: 'Feb 2025',
+        excerpt: 'Strategies for maintaining consistent service quality across distributed global teams.',
+        mediumUrl: 'https://medium.com'
       }
     ]
   },
@@ -141,30 +150,54 @@ export const PROFILES: Record<string, Profile> = {
         title: 'Education',
         layout: 'details',
         items: [
-          { primary: 'Strategic Content Management', secondary: 'Global Writing Institute · 2015' },
-          { primary: 'B.A. in English Literature', secondary: 'National Arts College · 2011' }
+          { primary: 'Bachelor of Engineering – Computer Science and Engineering', secondary: 'Maharshi Dayanand University · 2010' }//,
+          //{ primary: 'B.A. in English Literature', secondary: 'National Arts College · 2011' }
         ]
       }
     ],
     projects: [
       {
         id: 'a1',
-        title: 'Docs-as-Code Implementation',
-        category: 'Infrastructure',
-        year: '2024',
-        description: 'Architected a Markdown-based documentation pipeline integrated directly into CI/CD workflows, reducing doc-to-release latency by 60%.',
-        tags: ['Markdown', 'GitHub Actions', 'Docusaurus']
+        title: '[SPIKE] LLM led Documentation',
+        category: 'Technical Writing Next',
+        year: '2025-2026',
+        description: 'Currently testing both cloud-based and local models for viability of LLM based documentation - Gemini, Claude, QWen.',
+        tags: ['AI', 'LLM', 'Gemini', 'Claude', 'QWen']
       },
       {
         id: 'a2',
-        title: 'API Reference Overhaul',
+        title: 'Developer Portals',
         category: 'Developer Experience',
         year: '2023',
-        description: 'Redesigned the public API reference for a fintech unicorn, resulting in a 40% reduction in developer support tickets related to integration.',
-        tags: ['OpenAPI', 'Swagger', 'DX']
+        description: 'Re-imagined developer experience into the developer platform for an industry leading fintech giant. 60% reduction in customer calls from the increased traffic to the platform.',
+        tags: ['Docs-as-Code', 'Automation', 'Managed-Platform', 'API-Documentation', 'OpenAPI', 'Swagger']
+      },
+      {
+        id: 'a3',
+        title: 'Docs-as-Code Implementation',
+        category: 'Infrastructure',
+        year: '2022',
+        description: 'Architected a Markdown-based documentation pipeline integrated directly into CI/CD workflows, reducing doc-to-release latency by 40%.',
+        tags: ['Markdown', 'GitHub Actions', 'SSGs']
       }
     ],
     whitepapers: [
+      {
+        id: 'w1',
+        title: '[Whitepaper] How Developer Portals Help You Thrive in the API Economy',
+        date: 'Mar 2023',
+        excerpt: 'Expert point of view on how to design, develop, and maintain a world-class developer portal to give your API the best chance of success in the increasingly competitive API economy.',
+        pdfUrl: 'https://go.wizeline.com/rs/571-SRN-279/images/Developer-Portals-and-Wizeline.pdf'
+      },
+      {
+        id: 'w3',
+        title: '[Blog] 3 Technical Writing Trends to Improve Documentation in 2023',
+        date: 'Mar 2023',
+        excerpt: 'Ranging from automated processes, instant scoping, and reusable content to looking into natural Language processing (NLP), machine learning (ML), and artificial intelligence (AI) themselves to help create core content faster...',
+        mediumUrl: 'https://web.archive.org/web/20241203145208/https://www.wizeline.com/technical-writing-trends-in-2023/'
+      }
+
+      /*
       {
         id: 'w1',
         title: 'The Future of AI-Assisted Documentation',
@@ -179,6 +212,7 @@ export const PROFILES: Record<string, Profile> = {
         excerpt: 'A framework for quantifying the impact of technical content on customer success and engineering velocity.',
         pdfUrl: '#'
       }
+      */
     ]
   }
 };

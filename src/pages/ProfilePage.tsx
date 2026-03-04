@@ -115,11 +115,11 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ profile }) => {
         </div>
       </section>
 
-      {/* Whitepapers (Arunabh only) */}
+      {/* Whitepapers and Blogs */}
       {profile.whitepapers && (
         <section id="whitepapers" className="py-24 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
-            <SectionHeader title="Insights & Research" eyebrow="Whitepapers" accentColor={profile.accentColor} />
+            <SectionHeader title="Insights & Research" eyebrow="Whitepapers and Blogs" accentColor={profile.accentColor} />
             <div className="grid md:grid-cols-3 gap-8">
               {profile.whitepapers.map((paper) => (
                 <motion.div 

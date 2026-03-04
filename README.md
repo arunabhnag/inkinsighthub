@@ -3,7 +3,7 @@
 This guide explains how to maintain and customize your dual-portfolio platform.
 
 ## 1. Editing Content
-Most of the site's content (names, roles, bios, projects, and whitepapers) is managed in a single file:
+Most of the site's content (names, roles, bios, projects, and whitepapers/blogs) is managed in a single file:
 `src/constants.ts`
 
 ### How to update a Profile:
@@ -13,6 +13,7 @@ Locate the `PROFILES` object in `src/constants.ts`. You can edit the following f
 - `tagline`: The italicized subtitle in the hero section.
 - `bio`: The "Leadership Philosophy" text.
 - `resumeUrl`: Link to your PDF resume (see "Embedding Resumes" below).
+- `whitepapers`: Array of research papers or blog posts (see "Whitepapers and Blogs" below).
 
 ### How to add/edit Projects:
 Add or modify objects within the `projects` array. Each project needs:
@@ -31,10 +32,11 @@ The resume sidebar is fully dynamic. You can add, remove, or reorder sections in
 - **To remove a section:** Delete the object from the `resumeSections` array.
 - **Layouts:** Use `layout: 'bullets'` for simple lists or `layout: 'details'` for items with subtitles (like education).
 
-### Whitepapers Section
+### Whitepapers and Blogs Section
 This section is automatically hidden if the `whitepapers` key is missing or empty in `src/constants.ts`. 
 - **To enable:** Add a `whitepapers: [...]` array to the profile in `constants.ts`.
 - **To disable:** Remove the `whitepapers` key or set it to `undefined`.
+- **Note:** This section is independent for each profile; you can have different content for Neha and Arunabh.
 
 ### Other Sections (Portfolio, Resume, Consultation)
 To manually hide these sections, open `src/pages/ProfilePage.tsx` and comment out or remove the corresponding `<section>` block:
