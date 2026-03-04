@@ -25,6 +25,12 @@ Add or modify objects within the `projects` array. Each project needs:
 ## 2. Toggling Sections On/Off
 The visibility of certain sections is controlled by the presence of data or conditional logic in `src/pages/ProfilePage.tsx`.
 
+### Resume Sections (Competencies, Education, etc.)
+The resume sidebar is fully dynamic. You can add, remove, or reorder sections in `src/constants.ts`.
+- **To add a section:** Add a new object to the `resumeSections` array.
+- **To remove a section:** Delete the object from the `resumeSections` array.
+- **Layouts:** Use `layout: 'bullets'` for simple lists or `layout: 'details'` for items with subtitles (like education).
+
 ### Whitepapers Section
 This section is automatically hidden if the `whitepapers` key is missing or empty in `src/constants.ts`. 
 - **To enable:** Add a `whitepapers: [...]` array to the profile in `constants.ts`.
@@ -89,7 +95,32 @@ The site uses Google Fonts. To change them:
 
 ---
 
-## 6. Deployment
+## 7. Managing Independent Projects (Extras)
+You can host independent HTML projects that are separate from the main profiles.
+
+### Step 1: Add the HTML file
+Place your independent HTML files in the `public/extras/` folder.
+- Example: `/public/extras/battery-intelligence.html`
+
+### Step 2: Register the project
+In `src/constants.ts`, add a new entry to the `EXTRA_PROJECTS` array:
+```typescript
+{
+  id: 'battery-intelligence',
+  title: 'Battery Intelligence',
+  description: 'A deep dive into advanced battery management...',
+  thumbnailUrl: 'https://picsum.photos/seed/battery/600/400',
+  path: '/extras/battery-intelligence.html',
+  isVisible: true // Toggle to show/hide on the Projects page
+}
+```
+
+### Step 3: Accessing the Projects Page
+The "Projects" page is linked from the **footer** of every profile page. It is not linked from the main landing page to keep the focus on the primary portfolios.
+
+---
+
+## 8. Deployment
 This site is built with Vite and is optimized for GitHub Pages with a custom domain.
 
 ### GitHub Pages Considerations

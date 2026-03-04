@@ -18,6 +18,16 @@ export interface Whitepaper {
   pdfUrl?: string;
 }
 
+export interface ResumeSection {
+  id: string;
+  title: string;
+  layout: 'bullets' | 'details';
+  items: {
+    primary: string;
+    secondary?: string;
+  }[];
+}
+
 export interface Profile {
   id: 'neha' | 'arunabh';
   name: string;
@@ -29,7 +39,28 @@ export interface Profile {
   whitepapers?: Whitepaper[];
   resumeUrl: string;
   imageUrl: string;
+  resumeSections: ResumeSection[];
 }
+
+export interface ExtraProject {
+  id: string;
+  title: string;
+  description: string;
+  thumbnailUrl: string;
+  path: string;
+  isVisible: boolean;
+}
+
+export const EXTRA_PROJECTS: ExtraProject[] = [
+  {
+    id: 'battery-intelligence',
+    title: 'Battery Intelligence',
+    description: 'A deep dive into advanced battery management systems and energy storage analytics.',
+    thumbnailUrl: 'https://picsum.photos/seed/battery/600/400',
+    path: '/extras/battery-intelligence.html',
+    isVisible: true
+  }
+];
 
 export const PROFILES: Record<string, Profile> = {
   neha: {
@@ -41,6 +72,29 @@ export const PROFILES: Record<string, Profile> = {
     bio: 'A seasoned leader with over a decade of experience designing and scaling service delivery frameworks across enterprise environments. Specialises in translating operational complexity into structured, measurable outcomes.',
     resumeUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
     imageUrl: '/hero-neha.png',
+    resumeSections: [
+      {
+        id: 'competencies',
+        title: 'Core Competencies',
+        layout: 'bullets',
+        items: [
+          { primary: 'Service Delivery' },
+          { primary: 'SLA Management' },
+          { primary: 'ITIL Framework' },
+          { primary: 'Stakeholder Management' },
+          { primary: 'Process Optimization' }
+        ]
+      },
+      {
+        id: 'education',
+        title: 'Education',
+        layout: 'details',
+        items: [
+          { primary: 'Master of Business Administration', secondary: 'University of Technology · 2012' },
+          { primary: 'B.S. in Computer Science', secondary: 'State Engineering College · 2009' }
+        ]
+      }
+    ],
     projects: [
       {
         id: 'p1',
@@ -69,6 +123,29 @@ export const PROFILES: Record<string, Profile> = {
     bio: 'Strategic documentation leader focused on building Docs-as-Code pipelines and high-performing content teams. Expert in distilling complex technical architectures into accessible, high-impact knowledge assets.',
     resumeUrl: '/2026_TD_Resume_ArunabhNag.pdf',
     imageUrl: '/hero-arunabh.png',
+    resumeSections: [
+      {
+        id: 'competencies',
+        title: 'Core Competencies',
+        layout: 'bullets',
+        items: [
+          { primary: 'Technical Writing' },
+          { primary: 'Docs-as-Code' },
+          { primary: 'API Documentation' },
+          { primary: 'Content Strategy' },
+          { primary: 'Team Leadership' }
+        ]
+      },
+      {
+        id: 'education',
+        title: 'Education',
+        layout: 'details',
+        items: [
+          { primary: 'Strategic Content Management', secondary: 'Global Writing Institute · 2015' },
+          { primary: 'B.A. in English Literature', secondary: 'National Arts College · 2011' }
+        ]
+      }
+    ],
     projects: [
       {
         id: 'a1',

@@ -137,6 +137,7 @@ export const Footer: React.FC = () => (
         <p className="text-text-muted text-xs font-mono uppercase tracking-widest">© 2026 · Professional Leadership Portfolios</p>
       </div>
       <div className="flex gap-6">
+        <Link to="/projects" className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">Projects</Link>
         <a href="#" className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">LinkedIn</a>
         <a href="#" className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">Medium</a>
         <a href="#" className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">Email</a>
