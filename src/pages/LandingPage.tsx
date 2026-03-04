@@ -26,7 +26,7 @@ export const LandingPage: React.FC = () => {
         className="flex-1 relative group overflow-hidden border-b md:border-b-0 md:border-r border-border"
       >
         <div className="absolute inset-0 bg-accent-neha/5 group-hover:bg-accent-neha/10 transition-colors duration-500" />
-        <div className="relative h-full flex flex-col justify-center p-12 md:p-24 z-10">
+        <div className="relative h-full flex flex-col justify-center p-12 md:p-24 md:pr-40 lg:pr-56 z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -57,7 +57,7 @@ export const LandingPage: React.FC = () => {
         className="flex-1 relative group overflow-hidden"
       >
         <div className="absolute inset-0 bg-accent-arunabh/5 group-hover:bg-accent-arunabh/10 transition-colors duration-500" />
-        <div className="relative h-full flex flex-col justify-center p-12 md:p-24 z-10">
+        <div className="relative h-full flex flex-col justify-center p-12 md:p-24 md:pl-40 lg:pl-56 z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -83,9 +83,9 @@ export const LandingPage: React.FC = () => {
       </Link>
 
       {/* Brand Overlay */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none hidden md:block">
-        <div className="bg-base px-8 py-4 border border-border">
-          <span className="font-display text-2xl font-semibold tracking-tighter text-text-primary">Ink & Insight Hub</span>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20">
+        <div className="bg-base px-6 py-3 md:px-8 md:py-4 border border-border shadow-2xl whitespace-nowrap">
+          <span className="font-display text-lg md:text-2xl font-semibold tracking-tighter text-text-primary">Ink & Insight Hub</span>
         </div>
       </div>
     </div>
