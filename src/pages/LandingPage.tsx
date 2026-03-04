@@ -85,7 +85,7 @@ export const LandingPage: React.FC = () => {
       {/* Brand Overlay */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none hidden md:block">
         <div className="bg-base px-8 py-4 border border-border">
-          <span className="font-display text-2xl font-semibold tracking-tighter text-text-primary">InkInsightHub</span>
+          <span className="font-display text-2xl font-semibold tracking-tighter text-text-primary">Ink & Insight Hub</span>
         </div>
       </div>
     </div>

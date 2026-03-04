@@ -55,8 +55,8 @@ export const EXTRA_PROJECTS: ExtraProject[] = [
   {
     id: 'battery-intelligence',
     title: 'Battery Intelligence',
-    description: 'A deep dive into advanced battery management systems and energy storage analytics.',
-    thumbnailUrl: 'https://picsum.photos/seed/battery/600/400',
+    description: 'A simple utility to understand your powercfg /batteryhealth report.',
+    thumbnailUrl: '/extras/battery-intelligence.png',
     path: '/extras/battery-intelligence.html',
     isVisible: true
   }
@@ -70,7 +70,7 @@ export const PROFILES: Record<string, Profile> = {
     tagline: 'Turning operational complexity into structured, measurable outcomes.',
     accentColor: 'var(--color-accent-neha)',
     bio: 'A seasoned leader with over a decade of experience designing and scaling service delivery frameworks across enterprise environments. Specialises in translating operational complexity into structured, measurable outcomes.',
-    resumeUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+    resumeUrl: '/2026_ServiceDelivery_Resume_NehaBabuNag.pdf',
     imageUrl: '/hero-neha.png',
     resumeSections: [
       {
