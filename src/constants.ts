@@ -65,6 +65,22 @@ export const EXTRA_PROJECTS: ExtraProject[] = [
     thumbnailUrl: '/extras/battery-intelligence.png',
     path: '/extras/battery-intelligence.html',
     isVisible: true
+  },
+  {
+    id: 'pdf_to_markdown',
+    title: 'PDF → Markdown - In Progress',
+    description: 'A simple utility to convert text based PDF files to Markdown. Includes a built-in simple markdown editor.',
+    thumbnailUrl: '/extras/pdf_to_markdown.png',
+    path: '/extras/pdf_to_markdown.html',
+    isVisible: true
+  },
+  {
+    id: 'resume-parser',
+    title: 'Resume Parser - In Progress',
+    description: 'A simple utility to parse your PDF resumes to HTML. The PDF → Markdown utility may provide a cleaner output at present',
+    thumbnailUrl: '/extras/resume-parser.png',
+    path: '/extras/resume-parser.html',
+    isVisible: true
   }
 ];
 
