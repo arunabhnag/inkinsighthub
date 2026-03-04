@@ -57,7 +57,25 @@ resumeUrl: 'https://example.com/my-resume.pdf', // External link
 
 ---
 
-## 4. Customizing Visuals
+## 4. Managing Hero Images
+The large images on the profile pages are managed similarly to resumes.
+
+### Step 1: Save your images
+Place your high-resolution portrait images in the `public/` folder.
+- Example: `/public/hero-neha.png`
+- Example: `/public/hero-arunabh.png`
+
+### Step 2: Update the URL
+In `src/constants.ts`, update the `imageUrl` field for each profile:
+```typescript
+imageUrl: '/hero-neha.png', // Local path in public folder
+```
+
+*Note: If the image is missing, the site will automatically fallback to a placeholder image to ensure the layout remains intact.*
+
+---
+
+## 5. Customizing Visuals
 ### Colors
 Colors are defined as CSS variables in `src/index.css`.
 - **Dark Mode:** Edit the `:root` block.
@@ -71,7 +89,7 @@ The site uses Google Fonts. To change them:
 
 ---
 
-## 5. Deployment
+## 6. Deployment
 This site is built with Vite and is optimized for GitHub Pages with a custom domain.
 
 ### GitHub Pages Considerations

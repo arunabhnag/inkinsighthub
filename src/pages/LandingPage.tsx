@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight, Sun, Moon } from 'lucide-react';
+import { ArrowRight, Sun, Moon, MapPin } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 export const LandingPage: React.FC = () => {
@@ -36,9 +36,13 @@ export const LandingPage: React.FC = () => {
             <h1 className="text-5xl md:text-7xl font-display font-light text-text-primary mb-4">
               Neha <br /> Babu Nag
             </h1>
-            <p className="text-accent-neha font-mono text-xs uppercase tracking-[0.25em] mb-12">
+            <p className="text-accent-neha font-mono text-xs uppercase tracking-[0.25em] mb-4">
               Service Delivery Leadership
             </p>
+            <div className="flex items-center gap-2 text-accent-neha/70 font-mono text-[9px] uppercase tracking-widest mb-12">
+              <MapPin size={12} />
+              <span>Mexican Permanent Residency</span>
+            </div>
             <div className="flex items-center gap-3 text-text-muted group-hover:text-text-primary transition-colors">
               <span className="font-mono text-[10px] uppercase tracking-widest">Enter Portfolio</span>
               <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
@@ -63,9 +67,13 @@ export const LandingPage: React.FC = () => {
             <h1 className="text-5xl md:text-7xl font-display font-light text-text-primary mb-4">
               Arunabh <br /> Nag
             </h1>
-            <p className="text-accent-arunabh font-mono text-xs uppercase tracking-[0.25em] mb-12">
+            <p className="text-accent-arunabh font-mono text-xs uppercase tracking-[0.25em] mb-4">
               Technical Writing Leadership
             </p>
+            <div className="flex items-center gap-2 text-accent-arunabh/70 font-mono text-[9px] uppercase tracking-widest mb-12">
+              <MapPin size={12} />
+              <span>Mexican Permanent Residency</span>
+            </div>
             <div className="flex items-center gap-3 text-text-muted group-hover:text-text-primary transition-colors">
               <span className="font-mono text-[10px] uppercase tracking-widest">Enter Portfolio</span>
               <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />

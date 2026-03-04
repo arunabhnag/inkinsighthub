@@ -23,6 +23,25 @@ export const Navbar: React.FC<NavbarProps> = ({ profileId, name, accentColor }) 
     ...(profileId === 'arunabh' ? [{ name: 'Whitepapers', href: `#whitepapers` }] : [])
   ] : [];
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.replace('#', '');
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80; // Account for fixed navbar
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    setIsOpen(false);
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-base/90 backdrop-blur-md border-b border-border h-16 flex items-center px-6 md:px-12 justify-between">
       <div className="flex items-center gap-4">
@@ -42,6 +61,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profileId, name, accentColor }) 
           <a 
             key={link.name} 
             href={link.href}
+            onClick={(e) => scrollToSection(e, link.href)}
             className="text-[11px] font-mono uppercase tracking-[0.2em] text-text-secondary hover:text-text-primary transition-colors relative group"
           >
             {link.name}
@@ -93,7 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profileId, name, accentColor }) 
               <a 
                 key={link.name} 
                 href={link.href}
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => scrollToSection(e, link.href)}
                 className="text-sm font-mono uppercase tracking-[0.2em] text-text-secondary"
               >
                 {link.name}

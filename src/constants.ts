@@ -28,6 +28,7 @@ export interface Profile {
   projects: Project[];
   whitepapers?: Whitepaper[];
   resumeUrl: string;
+  imageUrl: string;
 }
 
 export const PROFILES: Record<string, Profile> = {
@@ -39,6 +40,7 @@ export const PROFILES: Record<string, Profile> = {
     accentColor: 'var(--color-accent-neha)',
     bio: 'A seasoned leader with over a decade of experience designing and scaling service delivery frameworks across enterprise environments. Specialises in translating operational complexity into structured, measurable outcomes.',
     resumeUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+    imageUrl: '/hero-neha.png',
     projects: [
       {
         id: 'p1',
@@ -66,6 +68,7 @@ export const PROFILES: Record<string, Profile> = {
     accentColor: 'var(--color-accent-arunabh)',
     bio: 'Strategic documentation leader focused on building Docs-as-Code pipelines and high-performing content teams. Expert in distilling complex technical architectures into accessible, high-impact knowledge assets.',
     resumeUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+    imageUrl: '/hero-arunabh.png',
     projects: [
       {
         id: 'a1',

@@ -10,6 +10,19 @@ interface ProfilePageProps {
 }
 
 export const ProfilePage: React.FC<ProfilePageProps> = ({ profile }) => {
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="bg-base min-h-screen pt-16">
       <Navbar profileId={profile.id} name={profile.name} accentColor={profile.accentColor} />
@@ -32,6 +45,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ profile }) => {
             <div className="flex flex-wrap gap-4">
               <a 
                 href="#consultation" 
+                onClick={(e) => scrollToSection(e, 'consultation')}
                 className="px-8 py-3 rounded-sm font-mono text-xs uppercase tracking-widest transition-all"
                 style={{ backgroundColor: profile.accentColor, color: 'var(--color-base)' }}
               >
@@ -39,6 +53,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ profile }) => {
               </a>
               <a 
                 href="#resume" 
+                onClick={(e) => scrollToSection(e, 'resume')}
                 className="px-8 py-3 rounded-sm border border-border font-mono text-xs uppercase tracking-widest text-text-primary hover:bg-white/5 transition-all"
               >
                 View Resume
@@ -53,9 +68,13 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ profile }) => {
           >
             <div className="aspect-[4/5] bg-surface rounded-sm overflow-hidden border border-border relative">
               <img 
-                src={`https://picsum.photos/seed/${profile.id}/800/1000`} 
+                src={profile.imageUrl} 
                 alt={profile.name}
                 className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
+                onError={(e) => {
+                  // Fallback to placeholder if local image is missing
+                  (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${profile.id}/800/1000`;
+                }}
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-base via-transparent to-transparent" />
