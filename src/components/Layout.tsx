@@ -51,7 +51,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profileId, name, accentColor }) 
           </Link>
         )}
         <Link to={profileId ? `/${profileId}` : '/'} className="font-display text-xl font-semibold tracking-tight text-text-primary">
-          {name || 'InkInsightHub'}
+          {name || 'Ink & Insight Hub'}
         </Link>
       </div>
 
