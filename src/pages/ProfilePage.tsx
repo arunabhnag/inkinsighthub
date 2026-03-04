@@ -157,30 +157,32 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ profile }) => {
           <div className="grid lg:grid-cols-3 gap-12">
             {/* HTML Resume Summary */}
             <div className="lg:col-span-1 space-y-8">
-              <div className="bg-surface p-8 border border-border rounded-sm">
-                <h4 className="font-display text-xl font-semibold text-text-primary mb-4">Core Competencies</h4>
-                <ul className="space-y-3">
-                  {['Strategic Planning', 'Stakeholder Management', 'Process Optimization', 'Team Leadership', 'Risk Mitigation'].map(skill => (
-                    <li key={skill} className="flex items-center gap-3 text-text-secondary text-sm">
-                      <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: profile.accentColor }} />
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-surface p-8 border border-border rounded-sm">
-                <h4 className="font-display text-xl font-semibold text-text-primary mb-4">Education</h4>
-                <div className="space-y-4">
-                  <div>
-                    <p className="text-text-primary text-sm font-semibold">Master of Business Administration</p>
-                    <p className="text-text-muted text-xs">University of Technology · 2012</p>
-                  </div>
-                  <div>
-                    <p className="text-text-primary text-sm font-semibold">B.S. in Computer Science</p>
-                    <p className="text-text-muted text-xs">State Engineering College · 2009</p>
-                  </div>
+              {profile.resumeSections.map((section) => (
+                <div key={section.id} className="bg-surface p-8 border border-border rounded-sm">
+                  <h4 className="font-display text-xl font-semibold text-text-primary mb-4">{section.title}</h4>
+                  
+                  {section.layout === 'bullets' ? (
+                    <ul className="space-y-3">
+                      {section.items.map((item, idx) => (
+                        <li key={idx} className="flex items-center gap-3 text-text-secondary text-sm">
+                          <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: profile.accentColor }} />
+                          {item.primary}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="space-y-4">
+                      {section.items.map((item, idx) => (
+                        <div key={idx}>
+                          <p className="text-text-primary text-sm font-semibold">{item.primary}</p>
+                          {item.secondary && <p className="text-text-muted text-xs">{item.secondary}</p>}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              </div>
+              ))}
+              
               <a 
                 href={profile.resumeUrl} 
                 download 
