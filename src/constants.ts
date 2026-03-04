@@ -67,7 +67,7 @@ export const PROFILES: Record<string, Profile> = {
     tagline: 'Bridging the gap between engineering excellence and user understanding.',
     accentColor: 'var(--color-accent-arunabh)',
     bio: 'Strategic documentation leader focused on building Docs-as-Code pipelines and high-performing content teams. Expert in distilling complex technical architectures into accessible, high-impact knowledge assets.',
-    resumeUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+    resumeUrl: '/2026_TD_Resume_ArunabhNag.pdf',
     imageUrl: '/hero-arunabh.png',
     projects: [
       {
