@@ -42,14 +42,13 @@ To manually hide these sections, open `src/pages/ProfilePage.tsx` and comment ou
 The resume section features an interactive PDF viewer and a download button.
 
 ### Step 1: Host your PDF
-You can either:
-1. **External Link:** Upload your PDF to Google Drive, Dropbox, or your own server and get a direct link.
-2. **Local Asset:** Place your PDF in the `public/` folder (e.g., `public/resume-neha.pdf`) and use the path `/resume-neha.pdf`.
+1. **Local Asset (Recommended):** Place your PDF in the `public/` folder (e.g., `public/resume-neha.pdf`). This is the most reliable method as it avoids "X-Frame-Options" blocks from external providers.
+2. **External Link:** Upload your PDF to a cloud provider. Note that many (like Google Drive) block iframe embedding by default.
 
 ### Step 2: Update the URL
 In `src/constants.ts`, update the `resumeUrl` field:
 ```typescript
-resumeUrl: '/resume-neha.pdf', // Local path
+resumeUrl: '/resume-neha.pdf', // Recommended: Local path
 // OR
 resumeUrl: 'https://example.com/my-resume.pdf', // External link
 ```
@@ -73,6 +72,18 @@ The site uses Google Fonts. To change them:
 ---
 
 ## 5. Deployment
-This site is built with Vite and is compatible with GitHub Pages.
+This site is built with Vite and is optimized for GitHub Pages with a custom domain.
+
+### GitHub Pages Considerations
+1. **Routing**: I have implemented `HashRouter` in `App.tsx`. This ensures that your links work correctly on `inkinsighthub.com` even when users refresh the page or share direct links (e.g., `inkinsighthub.com/#/neha`).
+2. **Base Path**: Since you are using the custom domain `inkinsighthub.com`, the `base` property in `vite.config.ts` is set to `/` (the root).
+3. **Automated Deployment**:
+   - I have included a pre-configured GitHub Action in `.github/workflows/deploy.yml`. 
+   - Once you push this code to your `main` branch on GitHub, it will automatically build and deploy your site to `inkinsighthub.com`.
+   - Ensure you have enabled "GitHub Pages" in your repository settings and set the "Build and deployment" source to "GitHub Actions".
+   - Ensure you have a `CNAME` file in your `public/` folder containing `inkinsighthub.com` (I have already created this for you).
+
+### Deployment Steps (Manual)
 1. Run `npm run build`.
-2. Deploy the contents of the `dist/` folder to your GitHub repository's `gh-pages` branch.
+2. Ensure the `dist/` folder contains your compiled assets.
+3. Deploy the contents of `dist/` to your hosting provider.
