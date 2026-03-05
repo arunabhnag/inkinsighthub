@@ -55,6 +55,8 @@ export interface ExtraProject {
   thumbnailUrl: string;
   path: string;
   isVisible: boolean;
+  tags?: string[];
+  isDefunct?: boolean;
 }
 
 export const EXTRA_PROJECTS: ExtraProject[] = [
@@ -64,7 +66,19 @@ export const EXTRA_PROJECTS: ExtraProject[] = [
     description: 'A simple utility to understand your powercfg /batteryreport HTML file.',
     thumbnailUrl: '/extras/battery-intelligence.png',
     path: '/extras/battery-intelligence.html',
-    isVisible: true
+    isVisible: true,
+    tags: ['Claude', 'Client-Side'],
+    isDefunct: false
+  },
+  {
+    id: 'resume-parser',
+    title: 'Resume Parser - In Progress',
+    description: 'A simple utility to parse your PDF resumes to HTML. Includes a built-in simple markdown editor.',
+    thumbnailUrl: '/extras/resume-parser.png',
+    path: '/extras/resume-parser.html',
+    isVisible: true,
+    tags: ['Claude', 'Client-Side', 'marked.js'],
+    isDefunct: false
   },
   {
     id: 'pdf_to_markdown',
@@ -72,15 +86,19 @@ export const EXTRA_PROJECTS: ExtraProject[] = [
     description: 'A simple utility to convert text based PDF files to Markdown. Includes a built-in simple markdown editor.',
     thumbnailUrl: '/extras/pdf_to_markdown.png',
     path: '/extras/pdf_to_markdown.html',
-    isVisible: true
+    isVisible: true,
+    tags: ['GPT', 'Client-Side'],
+    isDefunct: true
   },
   {
-    id: 'resume-parser',
-    title: 'Resume Parser - In Progress',
-    description: 'A simple utility to parse your PDF resumes to HTML. The PDF → Markdown utility may provide a cleaner output at present',
-    thumbnailUrl: '/extras/resume-parser.png',
-    path: '/extras/resume-parser.html',
-    isVisible: true
+    id: 'pdf-parser',
+    title: 'PDF Parser - In Progress',
+    description: 'A simple utility to parse your PDF files to HTML. Includes a built-in simple markdown editor.',
+    thumbnailUrl: '/extras/pdf-parser.png',
+    path: '/extras/pdf-parser.html',
+    isVisible: true,
+    tags: ['Claude', 'Client-Side', 'marked.js'],
+    isDefunct: false
   }
 ];
 
