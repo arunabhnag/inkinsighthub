@@ -7,7 +7,12 @@ import { Navbar, Footer } from '../components/Layout';
 import { SectionHeader } from '../components/UI';
 
 export const ProjectsPage: React.FC = () => {
-  const visibleProjects = EXTRA_PROJECTS.filter(p => p.isVisible);
+  const visibleProjects = EXTRA_PROJECTS
+    .filter(p => p.isVisible)
+    .sort((a, b) => {
+      if (a.isDefunct === b.isDefunct) return 0;
+      return a.isDefunct ? 1 : -1;
+    });
 
   return (
     <div className="bg-base min-h-screen pt-16">
@@ -59,12 +64,29 @@ export const ProjectsPage: React.FC = () => {
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="text-xl font-display font-semibold text-text-primary mb-3 group-hover:text-text-primary transition-colors">
+                <h3 className="text-xl font-display font-semibold text-text-primary mb-3 group-hover:text-text-primary transition-colors flex items-center gap-3">
+                  {project.isDefunct && (
+                    <span className="px-2 py-0.5 bg-red-500/10 border border-red-500/20 text-red-500 text-[9px] font-mono uppercase tracking-widest rounded-sm">
+                      Defunct
+                    </span>
+                  )}
                   {project.title}
                 </h3>
                 <p className="text-text-secondary text-sm leading-relaxed mb-6">
                   {project.description}
                 </p>
+                {project.tags && project.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.map((tag) => (
+                      <span 
+                        key={tag} 
+                        className="px-2 py-0.5 bg-base/50 border border-border rounded-full text-[9px] font-mono text-text-muted uppercase tracking-wider"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
                 <span className="font-mono text-[10px] uppercase tracking-widest text-text-muted group-hover:text-text-primary transition-colors">
                   View Project →
                 </span>
