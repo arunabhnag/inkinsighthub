@@ -227,7 +227,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 // ══════════════════════════════════════════════
 // WEAPON DATABASE
 // ══════════════════════════════════════════════
-const DB = {"weapon_types":{"ballistic":{"label":"Ballistic","color":"#8fb8d0"},"laser":{"label":"Laser","color":"#00e5ff"},"particle":{"label":"Particle","color":"#bd93f9"},"shotgun":{"label":"Shotgun","color":"#ff6b35"},"explosive":{"label":"Explosive","color":"#f0b429"}},"damage_types":{"PHYS":{"label":"Physical","color":"#8fb8d0"},"ENGY":{"label":"Energy","color":"#00e5ff"},"EM":{"label":"EM","color":"#bd93f9"},"RAD":{"label":"Radioactive","color":"#00ff9d"},"CORR":{"label":"Corrosive","color":"#f0b429"},"INC":{"label":"Incendiary","color":"#ff6b35"},"CRYO":{"label":"Cryo","color":"#aae4ff"}},"legendary_effects":{"instigating":{"label":"Instigating","tier":"S","dmg_mult_full_health":2,"desc":"2× damage to full-health targets. Best first-strike/sniper effect in the game."},"anti_personnel":{"label":"Anti-Personnel","tier":"S","dmg_mult":1.3,"desc":"+30% vs. humans. Near-universal value — humans are the most common enemy type."},"berserker":{"label":"Berserker","tier":"S","scales_with_no_armor":true,"desc":"More damage the less armor worn. Caps at max bonus with 0 armor pieces equipped."},"rapid":{"label":"Rapid","tier":"A","fire_rate_mult":1.25,"desc":"+25% fire rate. Effectively +25% DPS at zero cost. Excellent on any auto weapon."},"radioactive":{"label":"Radioactive","tier":"A","dot_dmg":5,"dot_ticks":6,"desc":"Random radioactive DoT (5×6). Bypasses partial armor. Great on sustained-fire weapons."},"corrosive":{"label":"Corrosive","tier":"A","armor_shred_pct":0.25,"desc":"Shreds 25% armor over time. Multiplies all subsequent damage — best in multi-weapon loadouts."},"explosive":{"label":"Explosive","tier":"A","aoe_radius":2.5,"desc":"Rounds explode on impact. Enables AoE on standard weapons. Devastating vs. groups."},"assassins":{"label":"Assassin's","tier":"A","first_attack_mult":1.5,"desc":"+50% damage on the first attack of combat. Great opener for any build."},"incendiary":{"label":"Incendiary","tier":"A","dot_dmg":8,"dot_ticks":5,"desc":"Burning DoT (8×5). Can spread to nearby enemies. Excellent in groups."},"cryogenic":{"label":"Cryogenic","tier":"A","slow_pct":30,"freeze_hp":60,"desc":"Slows 30%, freezes at threshold. Best CC legendary in the game."},"space_adept":{"label":"Space-Adept","tier":"A","space_mult":1.3,"planet_mult":0.7,"desc":"+30% in space/-30% on planets. Excellent for ship boarding builds."},"disassembler":{"label":"Disassembler","tier":"A","robot_dmg_mult":2,"desc":"2× damage to robots/mechs/turrets. Dedicate one slot to this vs. mechanical enemies."},"elemental":{"label":"Elemental","tier":"A","random_status":true,"desc":"Random status effects on hit. High variance, good uptime on sustained fire."},"extended_magazine":{"label":"Extended Magazine","tier":"B","mag_mult":1.5,"desc":"+50% mag capacity. Best on weapons with small magazines."},"frenzy":{"label":"Frenzy","tier":"B","proc_chance":0.1,"desc":"10% chance to make target attack allies. Good in crowd scenarios, weak 1v1."},"staggering":{"label":"Staggering","tier":"B","stagger_chance":0.25,"desc":"25% stagger chance. Useful for interrupting dangerous enemy attacks."},"med_runner":{"label":"Med-Runner","tier":"B","heal_on_kill":5,"desc":"Heals 5 HP per kill. Works best with fast-kill auto weapons."},"sentinel":{"label":"Sentinel's","tier":"B","dmg_reduce_standing":0.5,"desc":"50% dmg reduction while still. Best used with sniper builds behind cover."},"titanium_build":{"label":"Titanium Build","tier":"C","mass_mult":0.5,"desc":"Halves weapon mass. Useful for very heavy weapons."},"punishing":{"label":"Punishing","tier":"C","recoil_dmg_reflect":0.1,"desc":"Reflects 10% of recoil damage. Very situational."},"draining":{"label":"Draining","tier":"B","power_drain":0.2,"desc":"Drains enemy power. Effective vs. robots and energy-shielded enemies."}},"weapons":[{"id":"solstice","name":"Solstice","type":"laser","subtype":"Pistol","tier":"common","dmg_type":"ENGY","base_dmg":28,"fire_rate":25,"range":30,"accuracy":68.5,"mag":10,"mass":1.75,"ammo":"1.5KV LZR","mod_slots":7},{"id":"equinox","name":"Equinox","type":"laser","subtype":"Rifle","tier":"common","dmg_type":"ENGY","base_dmg":34,"fire_rate":33,"range":52,"accuracy":74,"mag":30,"mass":3.5,"ammo":"1.5KV LZR","mod_slots":7},{"id":"reflection","name":"Reflection","type":"laser","subtype":"Pistol","tier":"common","dmg_type":"ENGY","base_dmg":30,"fire_rate":46,"range":20,"accuracy":65,"mag":16,"mass":1.4,"ammo":"1.5KV LZR","mod_slots":6},{"id":"orion","name":"Orion","type":"laser","subtype":"Rifle","tier":"common","dmg_type":"ENGY","base_dmg":53,"fire_rate":33,"range":52,"accuracy":77,"mag":50,"mass":10,"ammo":"3KV LZR","mod_slots":7},{"id":"unmitigated_violence","name":"Unmitigated Violence","type":"laser","subtype":"Rifle","tier":"legendary","dmg_type":"ENGY","base_dmg":125,"fire_rate":33,"range":52,"accuracy":77,"mag":50,"mass":10.65,"ammo":"3KV LZR","mod_slots":7,"legendary_effects":["frenzy","radioactive","instigating"]},{"id":"magshear","name":"Magshear","type":"ballistic","subtype":"SMG","tier":"common","dmg_type":"PHYS","base_dmg":11,"fire_rate":165,"range":24,"accuracy":64.3,"mag":50,"mass":4.05,"ammo":"11mm Caseless","mod_slots":7},{"id":"magpulse","name":"Magpulse","type":"ballistic","subtype":"Pistol","tier":"common","dmg_type":"PHYS","base_dmg":34,"fire_rate":40,"range":30,"accuracy":69.2,"mag":20,"mass":1.5,"ammo":".27 Caliber","mod_slots":6},{"id":"magsniper","name":"Magsniper","type":"ballistic","subtype":"Sniper","tier":"common","dmg_type":"PHYS","base_dmg":132,"fire_rate":15,"range":100,"accuracy":88.3,"mag":6,"mass":5.3,"ammo":".50 MI Array","mod_slots":7},{"id":"magtorrent","name":"Magtorrent","type":"ballistic","subtype":"Rifle","tier":"common","dmg_type":"PHYS","base_dmg":15,"fire_rate":100,"range":40,"accuracy":68,"mag":30,"mass":5.5,"ammo":".27 Caliber","mod_slots":7},{"id":"grendel","name":"Grendel","type":"ballistic","subtype":"SMG","tier":"common","dmg_type":"PHYS","base_dmg":13,"fire_rate":120,"range":24,"accuracy":62,"mag":30,"mass":3.9,"ammo":"11mm Caseless","mod_slots":6},{"id":"beowulf","name":"Beowulf","type":"ballistic","subtype":"Rifle","tier":"common","dmg_type":"PHYS","base_dmg":34,"fire_rate":33,"range":48,"accuracy":74,"mag":30,"mass":4.3,"ammo":"7.77mm","mod_slots":7},{"id":"liberator","name":"Liberator","type":"ballistic","subtype":"Rifle","tier":"common","dmg_type":"PHYS","base_dmg":16,"fire_rate":80,"range":36,"accuracy":66,"mag":30,"mass":4.1,"ammo":"7.77mm","mod_slots":6},{"id":"hard_target","name":"Hard Target","type":"ballistic","subtype":"Sniper","tier":"common","dmg_type":"PHYS","base_dmg":109,"fire_rate":15,"range":100,"accuracy":89.5,"mag":6,"mass":5.1,"ammo":"6.5mm CT","mod_slots":7},{"id":"novalight","name":"Novalight","type":"ballistic","subtype":"Pistol","tier":"common","dmg_type":"PHYS","base_dmg":42,"fire_rate":22,"range":28,"accuracy":72,"mag":8,"mass":1.2,"ammo":".45 Caliber","mod_slots":6},{"id":"breach","name":"Breach","type":"ballistic","subtype":"Shotgun","tier":"common","dmg_type":"PHYS","base_dmg":114,"fire_rate":25,"range":12,"accuracy":38,"mag":6,"mass":4.9,"ammo":"15x25mm Caseless","mod_slots":7},{"id":"boom_boom","name":"Boom Boom","type":"ballistic","subtype":"Shotgun","tier":"common","dmg_type":"PHYS","base_dmg":175,"fire_rate":12,"range":10,"accuracy":30,"mag":2,"mass":6.8,"ammo":"15x25mm Caseless","mod_slots":5},{"id":"coachman","name":"Coachman","type":"ballistic","subtype":"Shotgun","tier":"common","dmg_type":"PHYS","base_dmg":86,"fire_rate":20,"range":12,"accuracy":36,"mag":4,"mass":5.2,"ammo":"15x25mm Caseless","mod_slots":6},{"id":"tombstone","name":"Tombstone","type":"ballistic","subtype":"SMG","tier":"common","dmg_type":"PHYS","base_dmg":18,"fire_rate":120,"range":20,"accuracy":58,"mag":40,"mass":4.6,"ammo":"11mm Caseless","mod_slots":6},{"id":"infiltrator","name":"Infiltrator","type":"ballistic","subtype":"Rifle","tier":"common","dmg_type":"PHYS","base_dmg":28,"fire_rate":55,"range":44,"accuracy":71,"mag":30,"mass":4.7,"ammo":"7.5mm Whitehot","mod_slots":7},{"id":"arc_welder","name":"Arc Welder","type":"laser","subtype":"Shotgun","tier":"common","dmg_type":"ENGY","base_dmg":56,"fire_rate":22,"range":12,"accuracy":45,"mag":2,"mass":3.2,"ammo":"1.5KV LZR","mod_slots":5},{"id":"ember","name":"Ember","type":"laser","subtype":"Pistol","tier":"rare","dmg_type":"ENGY","base_dmg":58,"fire_rate":22,"range":28,"accuracy":70,"mag":16,"mass":1.8,"ammo":"1.5KV LZR","mod_slots":7},{"id":"eternity_gate","name":"Eternity's Gate","type":"particle","subtype":"Rifle","tier":"legendary","dmg_type":"PHYS","base_dmg":165,"fire_rate":20,"range":60,"accuracy":82,"mag":20,"mass":8.5,"ammo":"Heavy Particle Fuse","mod_slots":7,"legendary_effects":["anti_personnel","corrosive","instigating"]},{"id":"the_revenant","name":"The Revenant","type":"ballistic","subtype":"SMG","tier":"legendary","dmg_type":"PHYS","base_dmg":18,"fire_rate":165,"range":24,"accuracy":64,"mag":50,"mass":4.5,"ammo":"11mm Caseless","mod_slots":7,"legendary_effects":["rapid","extended_magazine","anti_personnel"]},{"id":"microgun","name":"Microgun","type":"ballistic","subtype":"Heavy","tier":"common","dmg_type":"PHYS","base_dmg":7,"fire_rate":600,"range":36,"accuracy":52,"mag":300,"mass":18,"ammo":"7.77mm","mod_slots":5},{"id":"negotiator","name":"Negotiator","type":"explosive","subtype":"Launcher","tier":"common","dmg_type":"PHYS","base_dmg":210,"fire_rate":8,"range":60,"accuracy":70,"mag":1,"mass":12,"ammo":"40mm XPL","mod_slots":4},{"id":"particle_beam_rifle","name":"Particle Beam Rifle","type":"particle","subtype":"Rifle","tier":"common","dmg_type":"PHYS","base_dmg":110,"fire_rate":20,"range":60,"accuracy":80,"mag":20,"mass":8,"ammo":"Heavy Particle Fuse","mod_slots":7},{"id":"scalpel","name":"Scalpel","type":"laser","subtype":"Sniper","tier":"rare","dmg_type":"ENGY","base_dmg":98,"fire_rate":12,"range":100,"accuracy":87,"mag":6,"mass":5.6,"ammo":"3KV LZR","mod_slots":7},{"id":"cal_50","name":".50 Caliber","type":"ballistic","subtype":"Sniper","tier":"common","dmg_type":"PHYS","base_dmg":147,"fire_rate":12,"range":100,"accuracy":90,"mag":5,"mass":6.2,"ammo":".50 MI Array","mod_slots":7},{"id":"urban_eagle","name":"Urban Eagle","type":"ballistic","subtype":"Pistol","tier":"common","dmg_type":"PHYS","base_dmg":56,"fire_rate":16,"range":28,"accuracy":73.5,"mag":8,"mass":1.8,"ammo":".45 Caliber","mod_slots":6},{"id":"eon","name":"Eon","type":"ballistic","subtype":"Pistol","tier":"common","dmg_type":"PHYS","base_dmg":28,"fire_rate":36,"range":26,"accuracy":67,"mag":16,"mass":1.2,"ammo":".27 Caliber","mod_slots":5},{"id":"va_ruun_painblade","name":"Va'ruun Painblade","type":"laser","subtype":"Rifle","tier":"rare","dmg_type":"ENGY","base_dmg":72,"fire_rate":20,"range":40,"accuracy":72,"mag":20,"mass":6.5,"ammo":"3KV LZR","mod_slots":7,"legendary_effects":["radioactive"]},{"id":"va_ruun_starshard","name":"Va'ruun Starshard","type":"laser","subtype":"Pistol","tier":"rare","dmg_type":"ENGY","base_dmg":48,"fire_rate":30,"range":25,"accuracy":68,"mag":20,"mass":2.2,"ammo":"1.5KV LZR","mod_slots":6,"legendary_effects":["radioactive"]},{"id":"lawgiver","name":"Lawgiver","type":"ballistic","subtype":"Rifle","tier":"common","dmg_type":"PHYS","base_dmg":35,"fire_rate":33,"range":48,"accuracy":73,"mag":30,"mass":4.4,"ammo":"7.77mm","mod_slots":7},{"id":"ashta_tamer","name":"Ashta Tamer","type":"ballistic","subtype":"Rifle","tier":"rare","dmg_type":"PHYS","base_dmg":25,"fire_rate":90,"range":36,"accuracy":66,"mag":30,"mass":5.1,"ammo":"7.77mm","mod_slots":6},{"id":"arc_rifle","name":"Arc Rifle","type":"laser","subtype":"Rifle","tier":"common","dmg_type":"ENGY","base_dmg":44,"fire_rate":22,"range":48,"accuracy":74,"mag":24,"mass":4.2,"ammo":"3KV LZR","mod_slots":6},{"id":"razorback","name":"Razorback","type":"ballistic","subtype":"Pistol","tier":"common","dmg_type":"PHYS","base_dmg":38,"fire_rate":25,"range":28,"accuracy":70,"mag":10,"mass":1.3,"ammo":".45 Caliber","mod_slots":6}],"ammo_scarcity":{"3KV LZR":3,"1.5KV LZR":4,"Heavy Particle Fuse":2,"Light Particle Fuse":3,"11mm Caseless":5,"7.77mm":5,".27 Caliber":4,".45 Caliber":4,".50 MI Array":2,"6.5mm CT":3,"7.5mm Whitehot":3,"15x25mm Caseless":3,"40mm XPL":2,".43 MI Array":3},"tier_scores":{"S":4,"A":3,"B":2,"C":1}};
+const DB = {"weapon_types":{"ballistic":{"label":"Ballistic","color":"#8fb8d0"},"laser":{"label":"Laser","color":"#00e5ff"},"particle":{"label":"Particle","color":"#bd93f9"},"shotgun":{"label":"Shotgun","color":"#ff6b35"},"explosive":{"label":"Explosive","color":"#f0b429"}},"damage_types":{"PHYS":{"label":"Physical","color":"#8fb8d0"},"ENGY":{"label":"Energy","color":"#00e5ff"},"EM":{"label":"EM","color":"#bd93f9"},"RAD":{"label":"Radioactive","color":"#00ff9d"},"CORR":{"label":"Corrosive","color":"#f0b429"},"INC":{"label":"Incendiary","color":"#ff6b35"},"CRYO":{"label":"Cryo","color":"#aae4ff"}},"legendary_effects":{"instigating":{"label":"Instigating","tier":"S","dmg_mult_full_health":2,"desc":"2× damage to full-health targets. Best first-strike/sniper effect in the game."},"anti_personnel":{"label":"Anti-Personnel","tier":"S","dmg_mult":1.3,"desc":"+30% vs. humans. Near-universal value — humans are the most common enemy type."},"berserker":{"label":"Berserker","tier":"S","scales_with_no_armor":true,"desc":"More damage the less armor worn. Caps at max bonus with 0 armor pieces equipped."},"rapid":{"label":"Rapid","tier":"A","fire_rate_mult":1.25,"desc":"+25% fire rate. Effectively +25% DPS at zero cost. Excellent on any auto weapon."},"radioactive":{"label":"Radioactive","tier":"A","dot_dmg":5,"dot_ticks":6,"desc":"Random radioactive DoT (5×6). Bypasses partial armor. Great on sustained-fire weapons."},"corrosive":{"label":"Corrosive","tier":"A","armor_shred_pct":0.25,"desc":"Shreds 25% armor over time. Multiplies all subsequent damage — best in multi-weapon loadouts."},"explosive":{"label":"Explosive","tier":"A","aoe_radius":2.5,"desc":"Rounds explode on impact. Enables AoE on standard weapons. Devastating vs. groups."},"assassins":{"label":"Assassin's","tier":"A","first_attack_mult":1.5,"desc":"+50% damage on the first attack of combat. Great opener for any build."},"incendiary":{"label":"Incendiary","tier":"A","dot_dmg":8,"dot_ticks":5,"desc":"Burning DoT (8×5). Can spread to nearby enemies. Excellent in groups."},"cryogenic":{"label":"Cryogenic","tier":"A","slow_pct":30,"freeze_hp":60,"desc":"Slows 30%, freezes at threshold. Best CC legendary in the game."},"space_adept":{"label":"Space-Adept","tier":"A","space_mult":1.3,"planet_mult":0.7,"desc":"+30% in space/-30% on planets. Excellent for ship boarding builds."},"disassembler":{"label":"Disassembler","tier":"A","robot_dmg_mult":2,"desc":"2× damage to robots/mechs/turrets. Dedicate one slot to this vs. mechanical enemies."},"elemental":{"label":"Elemental","tier":"A","random_status":true,"desc":"Random status effects on hit. High variance, good uptime on sustained fire."},"extended_magazine":{"label":"Extended Magazine","tier":"B","mag_mult":1.5,"desc":"+50% mag capacity. Best on weapons with small magazines."},"frenzy":{"label":"Frenzy","tier":"B","proc_chance":0.1,"desc":"10% chance to make target attack allies. Good in crowd scenarios, weak 1v1."},"staggering":{"label":"Staggering","tier":"B","stagger_chance":0.25,"desc":"25% stagger chance. Useful for interrupting dangerous enemy attacks."},"med_runner":{"label":"Med-Runner","tier":"B","heal_on_kill":5,"desc":"Heals 5 HP per kill. Works best with fast-kill auto weapons."},"sentinel":{"label":"Sentinel's","tier":"B","dmg_reduce_standing":0.5,"desc":"50% dmg reduction while still. Best used with sniper builds behind cover."},"titanium_build":{"label":"Titanium Build","tier":"C","mass_mult":0.5,"desc":"Halves weapon mass. Useful for very heavy weapons."},"punishing":{"label":"Punishing","tier":"C","recoil_dmg_reflect":0.1,"desc":"Reflects 10% of recoil damage. Very situational."},"draining":{"label":"Draining","tier":"B","power_drain":0.2,"desc":"Drains enemy power. Effective vs. robots and energy-shielded enemies."},"poison":{"label":"Poison","tier":"B","desc":"Randomly deals poison damage and slows the target.","fire_rate_mult":1},"lacerate":{"label":"Lacerate","tier":"B","desc":"Randomly applies a bleed effect to the target.","fire_rate_mult":1}},"weapons":[{"id":"solstice","name":"Solstice","type":"laser","subtype":"Pistol","tier":"common","dmg_type":"ENGY","base_dmg":28,"fire_rate":25,"range":30,"accuracy":68.5,"mag":10,"mass":1.75,"ammo":"1.5KV LZR","mod_slots":7},{"id":"equinox","name":"Equinox","type":"laser","subtype":"Rifle","tier":"common","dmg_type":"ENGY","base_dmg":34,"fire_rate":33,"range":52,"accuracy":74,"mag":30,"mass":3.5,"ammo":"1.5KV LZR","mod_slots":7},{"id":"reflection","name":"Reflection","type":"laser","subtype":"Pistol","tier":"common","dmg_type":"ENGY","base_dmg":30,"fire_rate":46,"range":20,"accuracy":65,"mag":16,"mass":1.4,"ammo":"1.5KV LZR","mod_slots":6},{"id":"orion","name":"Orion","type":"laser","subtype":"Rifle","tier":"common","dmg_type":"ENGY","base_dmg":53,"fire_rate":33,"range":52,"accuracy":77,"mag":50,"mass":10,"ammo":"3KV LZR","mod_slots":7},{"id":"unmitigated_violence","name":"Unmitigated Violence","type":"laser","subtype":"Rifle","tier":"legendary","dmg_type":"ENGY","base_dmg":125,"fire_rate":33,"range":52,"accuracy":77,"mag":50,"mass":10.65,"ammo":"3KV LZR","mod_slots":7,"legendary_effects":["frenzy","radioactive","instigating"]},{"id":"magshear","name":"Magshear","type":"ballistic","subtype":"SMG","tier":"common","dmg_type":"PHYS","base_dmg":11,"fire_rate":165,"range":24,"accuracy":64.3,"mag":50,"mass":4.05,"ammo":"11mm Caseless","mod_slots":7},{"id":"magpulse","name":"Magpulse","type":"ballistic","subtype":"Pistol","tier":"common","dmg_type":"PHYS","base_dmg":34,"fire_rate":40,"range":30,"accuracy":69.2,"mag":20,"mass":1.5,"ammo":".27 Caliber","mod_slots":6},{"id":"magsniper","name":"Magsniper","type":"ballistic","subtype":"Sniper","tier":"common","dmg_type":"PHYS","base_dmg":132,"fire_rate":15,"range":100,"accuracy":88.3,"mag":6,"mass":5.3,"ammo":".50 MI Array","mod_slots":7},{"id":"magtorrent","name":"Magtorrent","type":"ballistic","subtype":"Rifle","tier":"common","dmg_type":"PHYS","base_dmg":15,"fire_rate":100,"range":40,"accuracy":68,"mag":30,"mass":5.5,"ammo":".27 Caliber","mod_slots":7},{"id":"grendel","name":"Grendel","type":"ballistic","subtype":"SMG","tier":"common","dmg_type":"PHYS","base_dmg":13,"fire_rate":120,"range":24,"accuracy":62,"mag":30,"mass":3.9,"ammo":"11mm Caseless","mod_slots":6},{"id":"beowulf","name":"Beowulf","type":"ballistic","subtype":"Rifle","tier":"common","dmg_type":"PHYS","base_dmg":34,"fire_rate":33,"range":48,"accuracy":74,"mag":30,"mass":4.3,"ammo":"7.77mm","mod_slots":7},{"id":"liberator","name":"Liberator","type":"ballistic","subtype":"Rifle","tier":"common","dmg_type":"PHYS","base_dmg":16,"fire_rate":80,"range":36,"accuracy":66,"mag":30,"mass":4.1,"ammo":"7.77mm","mod_slots":6},{"id":"hard_target","name":"Hard Target","type":"ballistic","subtype":"Sniper","tier":"common","dmg_type":"PHYS","base_dmg":109,"fire_rate":15,"range":100,"accuracy":89.5,"mag":6,"mass":5.1,"ammo":"6.5mm CT","mod_slots":7},{"id":"novalight","name":"Novalight","type":"ballistic","subtype":"Pistol","tier":"common","dmg_type":"PHYS","base_dmg":42,"fire_rate":22,"range":28,"accuracy":72,"mag":8,"mass":1.2,"ammo":".45 Caliber","mod_slots":6},{"id":"breach","name":"Breach","type":"ballistic","subtype":"Shotgun","tier":"common","dmg_type":"PHYS","base_dmg":114,"fire_rate":25,"range":12,"accuracy":38,"mag":6,"mass":4.9,"ammo":"15x25mm Caseless","mod_slots":7},{"id":"boom_boom","name":"Boom Boom","type":"ballistic","subtype":"Shotgun","tier":"common","dmg_type":"PHYS","base_dmg":175,"fire_rate":12,"range":10,"accuracy":30,"mag":2,"mass":6.8,"ammo":"15x25mm Caseless","mod_slots":5},{"id":"coachman","name":"Coachman","type":"ballistic","subtype":"Shotgun","tier":"common","dmg_type":"PHYS","base_dmg":86,"fire_rate":20,"range":12,"accuracy":36,"mag":4,"mass":5.2,"ammo":"15x25mm Caseless","mod_slots":6},{"id":"tombstone","name":"Tombstone","type":"ballistic","subtype":"SMG","tier":"common","dmg_type":"PHYS","base_dmg":18,"fire_rate":120,"range":20,"accuracy":58,"mag":40,"mass":4.6,"ammo":"11mm Caseless","mod_slots":6},{"id":"infiltrator","name":"Infiltrator","type":"ballistic","subtype":"Rifle","tier":"common","dmg_type":"PHYS","base_dmg":28,"fire_rate":55,"range":44,"accuracy":71,"mag":30,"mass":4.7,"ammo":"7.5mm Whitehot","mod_slots":7},{"id":"arc_welder","name":"Arc Welder","type":"laser","subtype":"Shotgun","tier":"common","dmg_type":"ENGY","base_dmg":56,"fire_rate":22,"range":12,"accuracy":45,"mag":2,"mass":3.2,"ammo":"1.5KV LZR","mod_slots":5},{"id":"ember","name":"Ember","type":"laser","subtype":"Pistol","tier":"rare","dmg_type":"ENGY","base_dmg":58,"fire_rate":22,"range":28,"accuracy":70,"mag":16,"mass":1.8,"ammo":"1.5KV LZR","mod_slots":7},{"id":"eternity_gate","name":"Eternity's Gate","type":"particle","subtype":"Rifle","tier":"legendary","dmg_type":"PHYS","base_dmg":165,"fire_rate":20,"range":60,"accuracy":82,"mag":20,"mass":8.5,"ammo":"Heavy Particle Fuse","mod_slots":7,"legendary_effects":["anti_personnel","corrosive","instigating"]},{"id":"the_revenant","name":"The Revenant","type":"ballistic","subtype":"SMG","tier":"legendary","dmg_type":"PHYS","base_dmg":19,"fire_rate":330,"range":57,"accuracy":69.8,"mag":150,"mass":0.14,"ammo":".50 Caliber","mod_slots":5,"legendary_effects":["extended_magazine","lacerate","titanium_build"]},{"id":"microgun","name":"Microgun","type":"ballistic","subtype":"Heavy","tier":"common","dmg_type":"PHYS","base_dmg":7,"fire_rate":600,"range":36,"accuracy":52,"mag":300,"mass":18,"ammo":"7.77mm","mod_slots":5},{"id":"negotiator","name":"Negotiator","type":"explosive","subtype":"Launcher","tier":"common","dmg_type":"PHYS","base_dmg":210,"fire_rate":8,"range":60,"accuracy":70,"mag":1,"mass":12,"ammo":"40mm XPL","mod_slots":4},{"id":"particle_beam_rifle","name":"Particle Beam Rifle","type":"particle","subtype":"Rifle","tier":"common","dmg_type":"PHYS","base_dmg":110,"fire_rate":20,"range":60,"accuracy":80,"mag":20,"mass":8,"ammo":"Heavy Particle Fuse","mod_slots":7},{"id":"scalpel","name":"Scalpel","type":"laser","subtype":"Sniper","tier":"rare","dmg_type":"ENGY","base_dmg":98,"fire_rate":12,"range":100,"accuracy":87,"mag":6,"mass":5.6,"ammo":"3KV LZR","mod_slots":7},{"id":"cal_50","name":".50 Caliber","type":"ballistic","subtype":"Sniper","tier":"common","dmg_type":"PHYS","base_dmg":147,"fire_rate":12,"range":100,"accuracy":90,"mag":5,"mass":6.2,"ammo":".50 MI Array","mod_slots":7},{"id":"urban_eagle","name":"Urban Eagle","type":"ballistic","subtype":"Pistol","tier":"common","dmg_type":"PHYS","base_dmg":56,"fire_rate":16,"range":28,"accuracy":73.5,"mag":8,"mass":1.8,"ammo":".45 Caliber","mod_slots":6},{"id":"eon","name":"Eon","type":"ballistic","subtype":"Pistol","tier":"common","dmg_type":"PHYS","base_dmg":28,"fire_rate":36,"range":26,"accuracy":67,"mag":16,"mass":1.2,"ammo":".27 Caliber","mod_slots":5},{"id":"va_ruun_painblade","name":"Va'ruun Painblade","type":"laser","subtype":"Rifle","tier":"rare","dmg_type":"ENGY","base_dmg":72,"fire_rate":20,"range":40,"accuracy":72,"mag":20,"mass":6.5,"ammo":"3KV LZR","mod_slots":7,"legendary_effects":["radioactive"]},{"id":"va_ruun_starshard","name":"Va'ruun Starshard","type":"laser","subtype":"Pistol","tier":"rare","dmg_type":"ENGY","base_dmg":48,"fire_rate":30,"range":25,"accuracy":68,"mag":20,"mass":2.2,"ammo":"1.5KV LZR","mod_slots":6,"legendary_effects":["radioactive"]},{"id":"lawgiver","name":"Lawgiver","type":"ballistic","subtype":"Rifle","tier":"common","dmg_type":"PHYS","base_dmg":35,"fire_rate":33,"range":48,"accuracy":73,"mag":30,"mass":4.4,"ammo":"7.77mm","mod_slots":7},{"id":"ashta_tamer","name":"Ashta Tamer","type":"ballistic","subtype":"Rifle","tier":"rare","dmg_type":"PHYS","base_dmg":25,"fire_rate":90,"range":36,"accuracy":66,"mag":30,"mass":5.1,"ammo":"7.77mm","mod_slots":6},{"id":"arc_rifle","name":"Arc Rifle","type":"laser","subtype":"Rifle","tier":"common","dmg_type":"ENGY","base_dmg":44,"fire_rate":22,"range":48,"accuracy":74,"mag":24,"mass":4.2,"ammo":"3KV LZR","mod_slots":6},{"id":"razorback","name":"Razorback","type":"ballistic","subtype":"Pistol","tier":"common","dmg_type":"PHYS","base_dmg":38,"fire_rate":25,"range":28,"accuracy":70,"mag":10,"mass":1.3,"ammo":".45 Caliber","mod_slots":6},{"id":"gallows_reach","name":"Gallow's Reach","aliases":["gallows reach","gallow reach"],"type":"ballistic","subtype":"Rifle","tier":"rare","dmg_type":"PHYS","base_dmg":26,"fire_rate":150,"mag":30,"range":44,"accuracy":71,"mass":4.25,"ammo":"7.62mm","mod_slots":7,"legendary_effects":["poison"],"notes":"Rare rifle with Poison effect and good fire rate.","role_notes":"Mid-range ballistic. Poison slows targets — useful for kiting."},{"id":"peacekeeper","name":"Peacekeeper","aliases":["peace keeper"],"type":"ballistic","subtype":"Rifle","tier":"rare","dmg_type":"PHYS","base_dmg":17,"fire_rate":112,"mag":55,"range":48,"accuracy":72.2,"mass":4.5,"ammo":"11mm Caseless","mod_slots":8,"legendary_effects":["extended_magazine"],"notes":"Rare rifle with large magazine and Extended Magazine effect.","role_notes":"High-capacity suppressor platform. 55-round mag with Extended Magazine is exceptional for sustained fire."},{"id":"corrosive_grendel","name":"Corrosive Grendel","aliases":["corrosive grendel"],"type":"ballistic","subtype":"Rifle","tier":"legendary","dmg_type":"PHYS","base_dmg":3,"fire_rate":170,"mag":50,"range":20,"accuracy":66.2,"mass":2.65,"ammo":"7.77mm","mod_slots":8,"legendary_effects":["instigating","corrosive"],"notes":"Legendary Grendel with Instigating and Corrosive — devastating opener.","role_notes":"Fire first every engagement for double damage + armor shred. Switch to a higher-damage weapon for follow-up."}],"ammo_scarcity":{"3KV LZR":3,"1.5KV LZR":4,"Heavy Particle Fuse":2,"Light Particle Fuse":3,"11mm Caseless":5,"7.77mm":5,".27 Caliber":4,".45 Caliber":4,".50 MI Array":2,"6.5mm CT":3,"7.5mm Whitehot":3,"15x25mm Caseless":3,"40mm XPL":2,".43 MI Array":3},"tier_scores":{"S":4,"A":3,"B":2,"C":1}};
 
 // ══════════════════════════════════════════════
 // BOOTSTRAP — load Tesseract.js once, cache in IndexedDB
@@ -388,35 +388,45 @@ function setOcrBar(show, msg, pct) {
 // OCR → WEAPON MATCH
 // ══════════════════════════════════════════════
 function matchFromOCR(raw) {
-  const text = raw.toLowerCase();
+  const text  = raw.toLowerCase();
+  const effects  = extractEffects(text);
+  const ammo     = extractAmmo(text);
+  const stats    = extractStats(text);
+  const mods     = extractMods(text);
 
-  // 1. Name match
   let best = null, bestScore = 0;
   for (const w of DB.weapons) {
     let score = 0;
-    if (text.includes(w.name.toLowerCase())) score = 100;
-    else for (const a of (w.aliases || [])) if (text.includes(a)) { score = 90; break; }
-    if (!score) {
-      const words = w.name.toLowerCase().split(/\s+/).filter(x => x.length > 2);
-      const hits  = words.filter(wd => text.includes(wd)).length;
-      if (hits) score = (hits / words.length) * 65;
+
+    // Ammo match — strongest signal, each type is unique
+    if (ammo && w.ammo) {
+      const wa = w.ammo.toLowerCase(), ta = ammo.toLowerCase();
+      if (wa === ta || wa.includes(ta) || ta.includes(wa)) score += 60;
+      else if (ammoAlias(wa, ta)) score += 55;
     }
+
+    // Effect match — very reliable (full description text is read clearly)
+    const dbEfx = w.legendary_effects || [];
+    const hits  = effects.filter(e => dbEfx.includes(e)).length;
+    if (effects.length > 0) {
+      if (dbEfx.length > 0) { score += hits * 25; if (hits === 0) score -= 20; }
+    }
+
+    // Damage type
+    if (stats.dmg_type && w.dmg_type && stats.dmg_type === w.dmg_type) score += 10;
+
+    // Name in text (rare but possible)
+    if (text.includes(w.name.toLowerCase())) score += 80;
+    for (const a of (w.aliases || []))
+      if (text.includes(a.toLowerCase())) { score += 75; break; }
+
     if (score > bestScore) { bestScore = score; best = w; }
   }
 
-  // 2. Stat fallback
-  if (bestScore < 40) {
-    const fb = matchByStats(text);
-    if (fb) { best = fb; bestScore = 50; }
-  }
-  if (!best || bestScore < 25) return null;
+  if (!best || bestScore < 20) return null;
 
-  const stats   = extractStats(text);
-  const effects = extractEffects(text);
-  const mods    = extractMods(text);
   const dmg = stats.dmg      || best.base_dmg;
-  const fr  = stats.fire_rate|| best.fire_rate;
-
+  const fr  = stats.fire_rate || best.fire_rate;
   return {
     ...best,
     base_dmg: dmg, fire_rate: fr,
@@ -424,46 +434,54 @@ function matchFromOCR(raw) {
     range:    stats.range    || best.range,
     accuracy: stats.accuracy || best.accuracy,
     mass:     stats.mass     || best.mass,
-    ammo:     stats.ammo     || best.ammo,
+    ammo:     ammo           || best.ammo,
     mods_str: stats.mods_str || `0/${best.mod_slots}`,
     legendary_effects: effects.length ? effects : (best.legendary_effects || []),
     mods_installed:    mods,
     dps:               computeDPS(dmg, fr, effects.length ? effects : (best.legendary_effects || [])),
-    match_confidence:  Math.round(bestScore),
+    match_confidence:  Math.min(99, Math.round(bestScore)),
   };
 }
 
-function matchByStats(text) {
-  const s = extractStats(text);
-  if (!s.dmg && !s.ammo) return null;
-  let best = null, bestScore = 0;
-  for (const w of DB.weapons) {
-    let score = 0;
-    if (s.ammo && (w.ammo||'').toLowerCase().includes(s.ammo)) score += 35;
-    if (s.dmg) { const r = s.dmg / w.base_dmg; if (r >= 0.8 && r <= 1.8) score += 20; }
-    if (score > bestScore) { bestScore = score; best = w; }
-  }
-  return bestScore >= 35 ? best : null;
+function ammoAlias(a, b) {
+  const c = {
+    '7.77mm':'7.77mm','7.77':'7.77mm',
+    '7.62mm':'7.62mm','7.62':'7.62mm',
+    '11mm caseless':'11mm caseless','11mm':'11mm caseless',
+    '3kv lzr':'3kv lzr','3kvu lzr':'3kv lzr','3kvu':'3kv lzr','3kv':'3kv lzr',
+    '.50 caliber':'.50 caliber','.50 mi':'.50 caliber',
+    '4.5mm mi':'4.5mm mi','1.5kv lzr':'1.5kv lzr','1.5kv':'1.5kv lzr',
+  };
+  return c[a] && c[a] === c[b];
+}
+
+function extractAmmo(text) {
+  const patterns = [
+    [/3\s*[kk][vu]\s*l[zz]r/i,    '3KV LZR'],
+    [/1\.5\s*[kk][vu]/i,           '1.5KV LZR'],
+    [/7\.7\d*\s*mm/i,              '7.77mm'],
+    [/7\.6\d*\s*mm/i,              '7.62mm'],
+    [/11\s*mm/i,                    '11mm Caseless'],
+    [/\.50\s*m/i,                   '.50 Caliber'],
+    [/4\.5\d*\s*mm/i,              '4.5mm MI'],
+    [/6\.5\d*\s*mm/i,              '6.5mm CT'],
+    [/2\.5\d*\s*mm/i,              '2.5mm STD'],
+    [/9\s*mm/i,                     '9mm STD'],
+    [/12\.5\s*mm/i,                '12.5mm STD'],
+    [/shotgun\s*shell/i,            'Shotgun Shell'],
+  ];
+  for (const [re, val] of patterns) if (re.test(text)) return val;
+  return null;
 }
 
 function extractStats(text) {
   const s = {};
-  const dmgM  = text.match(/(?:engy|phys|em\b|rad|corr|inc|cryo)[^\d]*(\d{2,3})/i);
-  if (dmgM)  s.dmg       = parseInt(dmgM[1]);
-  const frM   = text.match(/fire\s*rate[^\d]*(\d{1,3})/i);
-  if (frM)   s.fire_rate  = parseInt(frM[1]);
-  const magM  = text.match(/\bmag(?:azine)?\b[^\d]*(\d{1,3})/i);
-  if (magM)  s.mag        = parseInt(magM[1]);
-  const rngM  = text.match(/\brange\b[^\d]*(\d{1,3})/i);
-  if (rngM)  s.range      = parseInt(rngM[1]);
-  const accM  = text.match(/accuracy[^\d]*([\d.]{2,5})/i);
-  if (accM)  s.accuracy   = parseFloat(accM[1]);
-  const massM = text.match(/\bmass\b[^\d]*([\d.]{1,5})/i);
-  if (massM) s.mass       = parseFloat(massM[1]);
-  const modsM = text.match(/(\d)\s*[\/|]\s*(\d)\s*mod/i) || text.match(/mod[^\/\d]*(\d)\s*[\/|]\s*(\d)/i);
-  if (modsM) s.mods_str   = `${modsM[1]}/${modsM[2]}`;
-  for (const ak of Object.keys(DB.ammo_scarcity))
-    if (text.includes(ak)) { s.ammo = ak; break; }
+  const dtM = text.match(/\b(engy|phys|em|rad|corr|inc|cryo)\b/i);
+  if (dtM) { s.dmg_type = dtM[1].toUpperCase(); const after = text.slice(text.toLowerCase().indexOf(dtM[0].toLowerCase()) + dtM[0].length); const nM = after.match(/^\s*[\*\.\-]?\s*(\d{1,3})/); if (nM) s.dmg = parseInt(nM[1]); }
+  const frM = text.match(/fire\s*rate\s*[\n\r]*\s*(\d{2,3})/i); if (frM) s.fire_rate = parseInt(frM[1]);
+  const accM = text.match(/(\d{2,3}\.\d)\s*%/); if (accM) s.accuracy = parseFloat(accM[1]);
+  const massM = text.match(/mass\s*[\n\r]*\s*([\d]+\.[\d]+)/i); if (massM) s.mass = parseFloat(massM[1]);
+  const modsM = text.match(/(\d)\s*[\/\\|]\s*(\d)\s*(?:mods?)?/i) || text.match(/mods?\s*[\n\r]*\s*(\d)\s*[\/\\|]\s*(\d)/i); if (modsM) s.mods_str = `${modsM[1]}/${modsM[2]}`;
   return s;
 }
 
@@ -473,8 +491,10 @@ const EFF_KW = {
   'explosive':'explosive',"assassin's":'assassins','assassin':'assassins',
   'incendiary':'incendiary','cryogenic':'cryogenic','space-adept':'space_adept','space adept':'space_adept',
   'disassembler':'disassembler','elemental':'elemental','extended magazine':'extended_magazine',
-  'staggering':'staggering','med-runner':'med_runner','sentinel':'sentinel',
-  'draining':'draining','titanium build':'titanium_build','punishing':'punishing','frenzy':'frenzy',
+  'staggering':'staggering','med-runner':'med_runner','med runner':'med_runner',
+  "sentinel's":'sentinel','sentinel':'sentinel','draining':'draining',
+  'titanium build':'titanium_build','punishing':'punishing','frenzy':'frenzy',
+  'poison':'poison','lacerate':'lacerate',
 };
 function extractEffects(text) {
   const found = [];
@@ -482,9 +502,18 @@ function extractEffects(text) {
     if (text.includes(kw) && !found.includes(id)) found.push(id);
   return found.slice(0, 3);
 }
-const ALL_MODS = ['long barrel','short barrel','suppressor','muzzle brake','flash hider','long scope','short scope','recon laser sight','reflex sight','holographic sight','thermal scope','stabilizing stock','balanced stock','tactical stock','large magazine','drum magazine','high velocity mag','large battery','overcharged battery','amplifier','stealth lasers','fully automatic','burst fire','high power','penetrator rounds','incendiary rounds','radioactive rounds','explosive rounds'];
+
+const ALL_MODS = ['long barrel','short barrel','suppressor','muzzle brake','flash hider',
+  'long scope','short scope','recon laser sight','reflex sight','holographic sight',
+  'thermal scope','stabilizing stock','balanced stock','tactical stock','ergonomic stock',
+  'large magazine','drum magazine','high velocity mag','high velocity',
+  'large battery','overcharged battery','amplifier','stealth lasers','laser sight',
+  'fully automatic','burst fire','high power','penetrator rounds','armor-piercing rounds',
+  'incendiary rounds','radioactive rounds','explosive rounds','ergonomic grip',
+];
 function extractMods(text) {
-  return ALL_MODS.filter(m => text.toLowerCase().includes(m)).map(m => m.replace(/\b\w/g, c => c.toUpperCase()));
+  const t = text.toLowerCase();
+  return ALL_MODS.filter(m => t.includes(m)).map(m => m.replace(/\b\w/g, c => c.toUpperCase()));
 }
 
 // ══════════════════════════════════════════════
