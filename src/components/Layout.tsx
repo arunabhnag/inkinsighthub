@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ArrowLeft, Sun, Moon } from 'lucide-react';
+import { Menu, X, ArrowLeft, Sun, Moon, Languages } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
-import { PROFILES, Profile } from '../constants';
+import { PROFILES, Profile, LOCALIZATION_ENABLED } from '../constants';
+import { useTranslation } from 'react-i18next';
 
 interface NavbarProps {
   profileId?: 'neha' | 'arunabh';
@@ -14,14 +15,20 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ profileId, name, accentColor }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const { theme, toggleTheme } = useTheme();
+  const { t, i18n } = useTranslation();
   const location = useLocation();
   const isHome = location.pathname === '/';
 
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'en' ? 'es' : 'en';
+    i18n.changeLanguage(newLang);
+  };
+
   const navLinks = profileId ? [
-    { name: 'Portfolio', href: `#portfolio` },
-    ...(PROFILES[profileId].whitepapers ? [{ name: 'Whitepapers and Blogs', href: `#whitepapers` }] : []),
-    { name: 'Resume', href: `#resume` },
-    { name: 'Consultation', href: `#consultation` }
+    { name: t('nav.portfolio'), href: `#portfolio` },
+    ...(PROFILES[profileId].whitepapers ? [{ name: t('nav.whitepapers'), href: `#whitepapers` }] : []),
+    { name: t('nav.resume'), href: `#resume` },
+    { name: t('nav.consultation'), href: `#consultation` }
   ] : [];
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -81,15 +88,34 @@ export const Navbar: React.FC<NavbarProps> = ({ profileId, name, accentColor }) 
           {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
         </button>
 
+        {LOCALIZATION_ENABLED && (
+          <button 
+            onClick={toggleLanguage}
+            className="flex items-center gap-2 p-2 text-text-muted hover:text-text-primary transition-colors font-mono text-[10px] uppercase tracking-widest"
+            aria-label="Toggle Language"
+          >
+            <Languages size={16} />
+            <span>{i18n.language === 'en' ? 'ES' : 'EN'}</span>
+          </button>
+        )}
+
         {!isHome && (
           <Link to="/" className="text-[9px] font-mono text-text-muted uppercase tracking-widest border border-border px-2 py-1 rounded-sm hover:border-text-muted/30">
-            Switch View
+            {t('nav.switchView')}
           </Link>
         )}
       </div>
 
       {/* Mobile Toggle */}
       <div className="flex items-center gap-4 md:hidden">
+        {LOCALIZATION_ENABLED && (
+          <button 
+            onClick={toggleLanguage}
+            className="p-2 text-text-muted hover:text-text-primary transition-colors"
+          >
+            <Languages size={20} />
+          </button>
+        )}
         <button 
           onClick={toggleTheme}
           className="p-2 text-text-muted hover:text-text-primary transition-colors"
@@ -134,21 +160,24 @@ interface FooterProps {
   profile?: Profile;
 }
 
-export const Footer: React.FC<FooterProps> = ({ profile }) => (
-  <footer className="py-12 px-6 md:px-12 border-t border-border bg-base">
-    <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-      <div className="text-center md:text-left">
-        <h3 className="font-display text-xl font-semibold text-text-primary mb-2">Ink & Insight Hub</h3>
-        <p className="text-text-muted text-xs font-mono uppercase tracking-widest">© 2026 · Professional Leadership Portfolios</p>
+export const Footer: React.FC<FooterProps> = ({ profile }) => {
+  const { t } = useTranslation();
+  return (
+    <footer className="py-12 px-6 md:px-12 border-t border-border bg-base">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="text-center md:text-left">
+          <h3 className="font-display text-xl font-semibold text-text-primary mb-2">{t('footer.title')}</h3>
+          <p className="text-text-muted text-xs font-mono uppercase tracking-widest">{t('footer.subtitle')}</p>
+        </div>
+        <div className="flex gap-6">
+          <Link to="/projects" className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">{t('nav.projects')}</Link>
+          <a href={profile?.linkedinUrl || "#"} className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">LinkedIn</a>
+          {profile?.showMediumLink && (
+            <a href="#" className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">Medium</a>
+          )}
+          <a href={profile ? `mailto:${profile.email}` : "#"} className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">Email</a>
+        </div>
       </div>
-      <div className="flex gap-6">
-        <Link to="/projects" className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">Projects</Link>
-        <a href={profile?.linkedinUrl || "#"} className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">LinkedIn</a>
-        {profile?.showMediumLink && (
-          <a href="#" className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">Medium</a>
-        )}
-        <a href={profile ? `mailto:${profile.email}` : "#"} className="text-text-muted hover:text-text-primary transition-colors font-mono text-xs uppercase tracking-widest">Email</a>
-      </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};

@@ -1,5 +1,7 @@
 import { LucideIcon } from 'lucide-react';
 
+export const LOCALIZATION_ENABLED = true;
+
 export interface Project {
   id: string;
   title: string;
@@ -24,6 +26,7 @@ export interface ResumeSection {
   layout: 'bullets' | 'details' | 'summary';
   isVisible: boolean;
   items: {
+    id: string;
     primary: string;
     secondary?: string;
     description?: string;
@@ -62,8 +65,8 @@ export interface ExtraProject {
 export const EXTRA_PROJECTS: ExtraProject[] = [
   {
     id: 'battery-intelligence',
-    title: 'Battery Intelligence',
-    description: 'A simple utility to understand your powercfg /batteryreport HTML file.',
+    title: '',
+    description: '',
     thumbnailUrl: '/extras/battery-intelligence.png',
     path: '/extras/battery-intelligence.html',
     isVisible: true,
@@ -72,8 +75,8 @@ export const EXTRA_PROJECTS: ExtraProject[] = [
   },
   {
     id: 'resume-parser',
-    title: 'Resume Parser - In Progress',
-    description: 'A simple utility to parse your PDF resumes to HTML. Includes a built-in simple markdown editor.',
+    title: '',
+    description: '',
     thumbnailUrl: '/extras/resume-parser.png',
     path: '/extras/resume-parser.html',
     isVisible: true,
@@ -82,8 +85,8 @@ export const EXTRA_PROJECTS: ExtraProject[] = [
   },
   {
     id: 'pdf_to_markdown',
-    title: 'PDF → Markdown - In Progress',
-    description: 'A simple utility to convert text based PDF files to Markdown. Includes a built-in simple markdown editor.',
+    title: '',
+    description: '',
     thumbnailUrl: '/extras/pdf_to_markdown.png',
     path: '/extras/pdf_to_markdown.html',
     isVisible: true,
@@ -92,8 +95,8 @@ export const EXTRA_PROJECTS: ExtraProject[] = [
   },
   {
     id: 'pdf-parser',
-    title: 'PDF Parser - In Progress',
-    description: 'A simple utility to parse your PDF files to HTML. Includes a built-in simple markdown editor.',
+    title: '',
+    description: '',
     thumbnailUrl: '/extras/pdf-parser.png',
     path: '/extras/pdf-parser.html',
     isVisible: true,
@@ -119,85 +122,88 @@ export const PROFILES: Record<string, Profile> = {
     resumeSections: [
       {
         id: 'summary',
-        title: 'Professional Summary',
+        title: '',
         layout: 'summary',
         isVisible: true,
         items: [
-          { primary: 'Seasoned Service Delivery Leader with 12+ years of experience in designing and scaling operational frameworks for global enterprise environments. Expert in ITIL methodologies, SLA management, and driving cross-functional team excellence to achieve measurable business outcomes.' }
+          { id: 's1', primary: '' }
         ]
       },
       {
         id: 'experience',
-        title: 'Professional Experience',
+        title: '',
         layout: 'details',
         isVisible: true,
         items: [
           { 
-            primary: 'Senior Service Delivery Manager', 
-            secondary: 'Global Enterprise Solutions · 2020 — Present',
-            description: 'Leading a team of 40+ service professionals across 3 continents. Responsible for the end-to-end delivery of managed services for Fortune 500 clients, consistently exceeding 99.9% SLA compliance.'
+            id: 'sdm',
+            primary: '', 
+            secondary: '',
+            description: ''
           },
           { 
-            primary: 'Service Desk Lead', 
-            secondary: 'Tech Infrastructure Corp · 2015 — 2020',
-            description: 'Managed the transition of regional support desks into a unified global service center. Implemented ServiceNow automation that reduced ticket volume by 25% through self-service initiatives.'
+            id: 'lead',
+            primary: '', 
+            secondary: '',
+            description: ''
           },
           { 
-            primary: 'Operations Analyst', 
-            secondary: 'Strategic Systems Ltd · 2010 — 2015',
-            description: 'Optimized internal workflows and reporting structures, providing data-driven insights that led to a 15% increase in operational efficiency.'
+            id: 'analyst',
+            primary: '', 
+            secondary: '',
+            description: ''
           }
         ]
       },
       {
         id: 'competencies',
-        title: 'Core Competencies',
+        title: '',
         layout: 'bullets',
         isVisible: true,
         items: [
-          { primary: 'Service Delivery Strategy' },
-          { primary: 'SLA & KPI Management' },
-          { primary: 'ITIL v4 Framework' },
-          { primary: 'Stakeholder Management' },
-          { primary: 'Process Optimization' },
-          { primary: 'Global Team Leadership' },
-          { primary: 'Change Management' }
+          { id: 'c1', primary: '' },
+          { id: 'c2', primary: '' },
+          { id: 'c3', primary: '' },
+          { id: 'c4', primary: '' },
+          { id: 'c5', primary: '' },
+          { id: 'c6', primary: '' },
+          { id: 'c7', primary: '' }
         ]
       },
       {
         id: 'education',
-        title: 'Education',
+        title: '',
         layout: 'details',
         isVisible: true,
         items: [
-          { primary: 'Bachelor of Technology - Electronics and Communication Engineering', secondary: 'KURUKSHETRA UNIVERSITY · 2010' }
+          { id: 'btech', primary: '', secondary: '' }
         ]
       }
     ],
     projects: [
       {
         id: 'p1',
-        title: 'Enterprise SLA Transformation',
-        category: 'Operational Strategy',
+        title: '',
+        category: '',
         year: '2024',
-        description: 'Redesigned the incident management lifecycle across 6 regional teams, reducing mean resolution time by 38% while maintaining 99.9% compliance.',
+        description: '',
         tags: ['ITIL', 'SLA Management', 'Global Teams']
       },
       {
         id: 'p2',
-        title: 'Global Service Desk Migration',
-        category: 'Project Management',
+        title: '',
+        category: '',
         year: '2023',
-        description: 'Led the multi-phase migration of 50,000 users to a consolidated ServiceNow instance, achieving a 92% CSAT score during the transition period.',
+        description: '',
         tags: ['ServiceNow', 'Change Management', 'User Experience']
       }
     ],
     whitepapers: [
       {
         id: 'n1',
-        title: 'Scaling Service Excellence in Hybrid Environments',
+        title: '',
         date: 'Feb 2025',
-        excerpt: 'Strategies for maintaining consistent service quality across distributed global teams.',
+        excerpt: '',
         mediumUrl: 'https://medium.com'
       }
     ]
@@ -218,122 +224,127 @@ export const PROFILES: Record<string, Profile> = {
     resumeSections: [
       {
         id: 'summary',
-        title: 'Professional Summary',
+        title: '',
         layout: 'summary',
         isVisible: true,
         items: [
-          { primary: 'Documentation leader with 12+ years of experience in technical writing, practice leadership, and developer productivity. I treat documentation as a product, prioritizing business value alongside content quality. I build teams that operate with a product-first mindset, embedded in the development lifecycle, integrated with UX, and accountable to outcomes. Currently seeking opportunities in documentation leadership, developer experience, and content strategy, following a sabbatical focused on generative AI and LLM tooling.' }
+          { id: 's1', primary: '' }
         ]
       },
       {
         id: 'experience',
-        title: 'Professional Experience',
+        title: '',
         layout: 'details',
         isVisible: true,
         items: [
           { 
-            primary: 'Technology Director: Documentation', 
-            secondary: 'Wizeline · July 2018 — March 2023',
-            description: 'Led the end-to-end business lifecycle of Wizeline\'s documentation and developer productivity practice. Rebuilt Technical Writing from a support function into a product-first practice with defined business value metrics, pre-sales positioning, and enterprise-grade delivery standards. Served as the primary escalation point and Go-To-Market (GTM) architect across 10+ enterprise customer engagements.'
+            id: 'director',
+            primary: '', 
+            secondary: '',
+            description: ''
           },
           { 
-            primary: 'Senior Technical Writer', 
-            secondary: 'HCL Technologies Limited · December 2014 — March 2018',
-            description: 'Documented technology-specific modules for an industry-leading, single-point infrastructure monitoring solution covering cloud platforms (AWS, Docker, OpenStack, G Suite), storage systems (Dell EMC, IBM, NetApp, Pure Storage), databases (MySQL, SQL Server, DB2), and enterprise applications (Cisco UCM, Active Directory, Hyper-V).'
+            id: 'senior',
+            primary: '', 
+            secondary: '',
+            description: ''
           },
           { 
-            primary: 'Technical Writer – Consultant', 
-            secondary: 'InterGlobe Technologies · August 2013 — April 2014',
-            description: 'Created end-user technical documentation for a Middle East-based, end-to-end aviation cargo management system.'
+            id: 'consultant1',
+            primary: '', 
+            secondary: '',
+            description: ''
           },
           { 
-            primary: 'SME – Technical Content', 
-            secondary: 'Innodata Inc. · April 2012 — June 2013',
-            description: 'Served as Engineering and QA lead, authoring and reviewing solutions for advanced Computer Science textbooks covering data structures, information security, system architecture, and computational theory.'
+            id: 'sme',
+            primary: '', 
+            secondary: '',
+            description: ''
           },
           { 
-            primary: 'Technical Writer – Consultant', 
-            secondary: 'AGNITY, Inc · September 2010 — July 2011',
-            description: 'Wrote and enhanced technical documents including User Guides, API References, and Provisioning Guides across telecom, healthcare, and Next Generation Intelligent Networks domains.'
+            id: 'consultant2',
+            primary: '', 
+            secondary: '',
+            description: ''
           }
         ]
       },
       {
         id: 'competencies',
-        title: 'Core Competencies',
+        title: '',
         layout: 'bullets',
         isVisible: true,
         items: [
-          { primary: 'Technical Communication' },
-          { primary: 'Documentation Practice Leadership' },
-          { primary: 'API Documentation' },
-          { primary: 'Developer Experience (DX)' },
-          { primary: 'Docs-as-Code' },
-          { primary: 'Content Strategy' },
-          { primary: 'Information Architecture' },
-          { primary: 'UX Writing' },
-          { primary: 'Style Guide Development' },
-          { primary: 'Developer Portals' },
-          { primary: 'Single-Sourcing' },
-          { primary: 'DocOps' },
-          { primary: 'Agile' },
-          { primary: 'GTM Strategy' },
-          { primary: 'Pre-Sales Positioning' },
-          { primary: 'Team Structuring and Mentoring' },
-          { primary: 'Stakeholder Management' },
-          { primary: 'Cross-Functional Collaboration' },
-          { primary: 'Generative AI Tooling' }
+          { id: 'c1', primary: '' },
+          { id: 'c2', primary: '' },
+          { id: 'c3', primary: '' },
+          { id: 'c4', primary: '' },
+          { id: 'c5', primary: '' },
+          { id: 'c6', primary: '' },
+          { id: 'c7', primary: '' },
+          { id: 'c8', primary: '' },
+          { id: 'c9', primary: '' },
+          { id: 'c10', primary: '' },
+          { id: 'c11', primary: '' },
+          { id: 'c12', primary: '' },
+          { id: 'c13', primary: '' },
+          { id: 'c14', primary: '' },
+          { id: 'c15', primary: '' },
+          { id: 'c16', primary: '' },
+          { id: 'c17', primary: '' },
+          { id: 'c18', primary: '' },
+          { id: 'c19', primary: '' }
         ]
       },
       {
         id: 'education',
-        title: 'Education',
+        title: '',
         layout: 'details',
         isVisible: true,
         items: [
-          { primary: 'Bachelor of Engineering – Computer Science and Engineering', secondary: 'Maharshi Dayanand University · 2010' }
+          { id: 'be', primary: '', secondary: '' }
         ]
       }
     ],
     projects: [
       {
         id: 'a1',
-        title: '[SPIKE] LLM led Documentation',
-        category: 'Technical Writing Next',
+        title: '',
+        category: '',
         year: '2025-2026',
-        description: 'Currently testing both cloud-based and local models for viability of LLM based documentation - Gemini, Claude, QWen.',
+        description: '',
         tags: ['AI', 'LLM', 'Gemini', 'Claude', 'QWen']
       },
       {
         id: 'a2',
-        title: 'Developer Portals',
-        category: 'Developer Experience',
+        title: '',
+        category: '',
         year: '2023',
-        description: 'Re-imagined developer experience into the developer platform for an industry leading fintech giant. 60% reduction in customer calls from the increased traffic to the platform.',
+        description: '',
         tags: ['Docs-as-Code', 'Automation', 'Managed-Platform', 'API-Documentation', 'OpenAPI', 'Swagger']
       },
       {
         id: 'a3',
-        title: 'Docs-as-Code Implementation',
-        category: 'Infrastructure',
+        title: '',
+        category: '',
         year: '2022',
-        description: 'Architected a Markdown-based documentation pipeline integrated directly into CI/CD workflows, reducing doc-to-release latency by 40%.',
+        description: '',
         tags: ['Markdown', 'GitHub Actions', 'SSGs']
       }
     ],
     whitepapers: [
       {
         id: 'w1',
-        title: '[Whitepaper] How Developer Portals Help You Thrive in the API Economy',
+        title: '',
         date: 'Mar 2023',
-        excerpt: 'Expert point of view on how to design, develop, and maintain a world-class developer portal to give your API the best chance of success in the increasingly competitive API economy.',
+        excerpt: '',
         pdfUrl: 'https://go.wizeline.com/rs/571-SRN-279/images/Developer-Portals-and-Wizeline.pdf'
       },
       {
         id: 'w3',
-        title: '[Blog] 3 Technical Writing Trends to Improve Documentation in 2023',
+        title: '',
         date: 'Mar 2023',
-        excerpt: 'Ranging from automated processes, instant scoping, and reusable content to looking into natural Language processing (NLP), machine learning (ML), and artificial intelligence (AI) themselves to help create core content faster...',
+        excerpt: '',
         mediumUrl: 'https://web.archive.org/web/20241203145208/https://www.wizeline.com/technical-writing-trends-in-2023/'
       }
 
