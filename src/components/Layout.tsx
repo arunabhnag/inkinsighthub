@@ -19,9 +19,9 @@ export const Navbar: React.FC<NavbarProps> = ({ profileId, name, accentColor }) 
 
   const navLinks = profileId ? [
     { name: 'Portfolio', href: `#portfolio` },
+    ...(PROFILES[profileId].whitepapers ? [{ name: 'Whitepapers and Blogs', href: `#whitepapers` }] : []),
     { name: 'Resume', href: `#resume` },
-    { name: 'Consultation', href: `#consultation` },
-    ...(PROFILES[profileId].whitepapers ? [{ name: 'Whitepapers and Blogs', href: `#whitepapers` }] : [])
+    { name: 'Consultation', href: `#consultation` }
   ] : [];
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
