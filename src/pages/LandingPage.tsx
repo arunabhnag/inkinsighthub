@@ -1,16 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight, Sun, Moon, MapPin } from 'lucide-react';
+import { ArrowRight, Sun, Moon, MapPin, Languages } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useTranslation } from 'react-i18next';
+import { LOCALIZATION_ENABLED } from '../constants';
 
 export const LandingPage: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
+  const { t, i18n } = useTranslation();
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'en' ? 'es' : 'en';
+    i18n.changeLanguage(newLang);
+  };
 
   return (
     <div className="min-h-screen bg-base flex flex-col md:flex-row relative">
-      {/* Theme Toggle Overlay */}
-      <div className="absolute top-6 right-6 z-50">
+      {/* Theme & Language Toggle Overlay */}
+      <div className="absolute top-6 right-6 z-50 flex flex-col gap-3">
         <button 
           onClick={toggleTheme}
           className="p-3 bg-surface border border-border rounded-full text-text-muted hover:text-text-primary transition-all shadow-lg"
@@ -18,6 +26,17 @@ export const LandingPage: React.FC = () => {
         >
           {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
         </button>
+
+        {LOCALIZATION_ENABLED && (
+          <button 
+            onClick={toggleLanguage}
+            className="p-3 bg-surface border border-border rounded-full text-text-muted hover:text-text-primary transition-all shadow-lg flex items-center justify-center gap-2 min-w-[60px]"
+            aria-label="Toggle Language"
+          >
+            <Languages size={20} />
+            <span className="font-mono text-[10px] font-bold">{i18n.language === 'en' ? 'ES' : 'EN'}</span>
+          </button>
+        )}
       </div>
 
       {/* Neha Tile */}
@@ -34,17 +53,17 @@ export const LandingPage: React.FC = () => {
           >
             <div className="w-12 h-[2px] bg-accent-neha mb-8" />
             <h1 className="text-5xl md:text-7xl font-display font-light text-text-primary mb-4 uppercase">
-              NEHA <br /> BABU NAG
+              {t('landing.neha.name').split(' ').slice(0, 1).join(' ')} <br /> {t('landing.neha.name').split(' ').slice(1).join(' ')}
             </h1>
             <p className="text-accent-neha font-mono text-xs uppercase tracking-[0.25em] mb-4">
-              Service Delivery Leadership
+              {t('landing.neha.role')}
             </p>
             <div className="flex items-center gap-2 text-accent-neha/70 font-mono text-[9px] uppercase tracking-widest mb-12">
               <MapPin size={12} />
-              <span className="font-bold">Mexican Permanent Residency</span>
+              <span className="font-bold">{t('landing.neha.residency')}</span>
             </div>
             <div className="flex items-center gap-3 text-text-muted group-hover:text-text-primary transition-colors">
-              <span className="font-mono text-[10px] uppercase tracking-widest">Enter Portfolio</span>
+              <span className="font-mono text-[10px] uppercase tracking-widest">{t('landing.neha.enter')}</span>
               <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
             </div>
           </motion.div>
@@ -65,17 +84,17 @@ export const LandingPage: React.FC = () => {
           >
             <div className="w-12 h-[2px] bg-accent-arunabh mb-8" />
             <h1 className="text-5xl md:text-7xl font-display font-light text-text-primary mb-4 uppercase">
-              ARUNABH <br /> NAG
+              {t('landing.arunabh.name').split(' ').slice(0, 1).join(' ')} <br /> {t('landing.arunabh.name').split(' ').slice(1).join(' ')}
             </h1>
             <p className="text-accent-arunabh font-mono text-xs uppercase tracking-[0.25em] mb-4">
-              Technical Writing Leadership
+              {t('landing.arunabh.role')}
             </p>
             <div className="flex items-center gap-2 text-accent-arunabh/70 font-mono text-[9px] uppercase tracking-widest mb-12">
               <MapPin size={12} />
-              <span className="font-bold">Mexican Permanent Residency</span>
+              <span className="font-bold">{t('landing.arunabh.residency')}</span>
             </div>
             <div className="flex items-center gap-3 text-text-muted group-hover:text-text-primary transition-colors">
-              <span className="font-mono text-[10px] uppercase tracking-widest">Enter Portfolio</span>
+              <span className="font-mono text-[10px] uppercase tracking-widest">{t('landing.arunabh.enter')}</span>
               <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
             </div>
           </motion.div>
@@ -85,7 +104,7 @@ export const LandingPage: React.FC = () => {
       {/* Brand Overlay */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20">
         <div className="bg-base px-6 py-3 md:px-8 md:py-4 border border-border shadow-2xl whitespace-nowrap">
-          <span className="font-display text-lg md:text-2xl font-semibold tracking-tighter text-text-primary">Ink & Insight Hub</span>
+          <span className="font-display text-lg md:text-2xl font-semibold tracking-tighter text-text-primary">{t('landing.brand')}</span>
         </div>
       </div>
     </div>

@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 import { EXTRA_PROJECTS } from '../constants';
 import { Navbar, Footer } from '../components/Layout';
 import { SectionHeader } from '../components/UI';
+import { useTranslation } from 'react-i18next';
 
 export const ProjectsPage: React.FC = () => {
+  const { t } = useTranslation();
   const visibleProjects = EXTRA_PROJECTS
     .filter(p => p.isVisible)
     .sort((a, b) => {
@@ -25,16 +27,15 @@ export const ProjectsPage: React.FC = () => {
             className="inline-flex items-center gap-2 text-text-muted hover:text-text-primary transition-colors font-mono text-[10px] uppercase tracking-widest mb-8"
           >
             <ArrowLeft size={14} />
-            Back to Hub
+            {t('nav.backToHub')}
           </Link>
           <SectionHeader 
-            title="Independent Projects" 
-            eyebrow="Extras & Research" 
+            title={t('projectsPage.title')} 
+            eyebrow={t('projectsPage.eyebrow')} 
             accentColor="var(--color-text-primary)" 
           />
           <p className="text-xl text-text-secondary font-light max-w-3xl leading-relaxed">
-            A collection of independent research, technical deep-dives, and experimental projects 
-            outside of our primary leadership portfolios.
+            {t('projectsPage.description')}
           </p>
         </div>
 
@@ -54,7 +55,7 @@ export const ProjectsPage: React.FC = () => {
               <div className="aspect-video relative overflow-hidden">
                 <img 
                   src={project.thumbnailUrl} 
-                  alt={project.title}
+                  alt={t(`extraProjects.${project.id}.title`)}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                   referrerPolicy="no-referrer"
                 />
@@ -67,13 +68,13 @@ export const ProjectsPage: React.FC = () => {
                 <h3 className="text-xl font-display font-semibold text-text-primary mb-3 group-hover:text-text-primary transition-colors flex items-center gap-3">
                   {project.isDefunct && (
                     <span className="px-2 py-0.5 bg-red-500/10 border border-red-500/20 text-red-500 text-[9px] font-mono uppercase tracking-widest rounded-sm">
-                      Defunct
+                      {t('projectsPage.defunct')}
                     </span>
                   )}
-                  {project.title}
+                  {t(`extraProjects.${project.id}.title`)}
                 </h3>
                 <p className="text-text-secondary text-sm leading-relaxed mb-6">
-                  {project.description}
+                  {t(`extraProjects.${project.id}.description`)}
                 </p>
                 {project.tags && project.tags.length > 0 && (
                   <div className="flex flex-wrap gap-2 mb-6">
@@ -88,7 +89,7 @@ export const ProjectsPage: React.FC = () => {
                   </div>
                 )}
                 <span className="font-mono text-[10px] uppercase tracking-widest text-text-muted group-hover:text-text-primary transition-colors">
-                  View Project →
+                  {t('projectsPage.viewProject')} →
                 </span>
               </div>
             </motion.a>
@@ -97,7 +98,7 @@ export const ProjectsPage: React.FC = () => {
 
         {visibleProjects.length === 0 && (
           <div className="py-24 text-center border border-dashed border-border rounded-sm">
-            <p className="text-text-muted font-mono text-xs uppercase tracking-widest">No projects currently visible.</p>
+            <p className="text-text-muted font-mono text-xs uppercase tracking-widest">{t('projectsPage.empty')}</p>
           </div>
         )}
       </main>

@@ -1,0 +1,247 @@
+{
+  "nav": {
+    "portfolio": "Portafolio",
+    "resume": "Currículum",
+    "consultation": "Consulta",
+    "whitepapers": "Artículos y Blogs",
+    "projects": "Proyectos",
+    "switchView": "Cambiar Vista",
+    "backToHub": "Volver al Hub"
+  },
+  "landing": {
+    "brand": "Ink & Insight Hub",
+    "neha": {
+      "name": "NEHA BABU NAG",
+      "role": "Liderazgo en Entrega de Servicios",
+      "residency": "Residencia Permanente Mexicana",
+      "enter": "Entrar al Portafolio"
+    },
+    "arunabh": {
+      "name": "ARUNABH NAG",
+      "role": "Liderazgo en Redacción Técnica",
+      "residency": "Residencia Permanente Mexicana",
+      "enter": "Entrar al Portafolio"
+    }
+  },
+  "hero": {
+    "experience": "Experiencia",
+    "years": "12+ Años",
+    "viewResume": "Ver Currículum"
+  },
+  "sections": {
+    "approach": "El Enfoque",
+    "philosophy": "Filosofía de Liderazgo",
+    "selectedWork": "Trabajo Seleccionado",
+    "insights": "Perspectivas e Investigación",
+    "career": "Trayectoria Profesional",
+    "connect": "Conectemos",
+    "downloadResume": "Descargar Currículum PDF"
+  },
+  "consultation": {
+    "description": "Disponible para consultoría estratégica, coaching de liderazgo y conferencias. Contácteme para discutir cómo podemos impulsar la excelencia en su organización.",
+    "email": "Correo",
+    "linkedin": "LinkedIn",
+    "bookCall": "Reservar Llamada"
+  },
+  "footer": {
+    "title": "Ink & Insight Hub",
+    "subtitle": "© 2026 · Portafolios de Liderazgo Profesional"
+  },
+  "projectsPage": {
+    "title": "Proyectos Independientes",
+    "eyebrow": "Extras e Investigación",
+    "description": "Una colección de investigación independiente, inmersiones técnicas profundas y proyectos experimentales fuera de nuestros portafolios de liderazgo principales.",
+    "viewProject": "Ver Proyecto",
+    "defunct": "Difunto",
+    "empty": "No hay proyectos visibles actualmente."
+  },
+  "profiles": {
+    "neha": {
+      "tagline": "Convirtiendo la complejidad operativa en resultados estructurados y medibles.",
+      "bio": "Una líder experimentada con más de una década de experiencia diseñando y escalando marcos de entrega de servicios en entornos empresariales. Se especializa en traducir la complejidad operativa en resultados estructurados y medibles.",
+      "resumeSections": {
+        "summary": {
+          "title": "Resumen Profesional",
+          "content": "Líder experimentada en Entrega de Servicios con más de 12 años de experiencia en el diseño y escalado de marcos operativos para entornos empresariales globales. Experta en metodologías ITIL, gestión de SLA y liderazgo de equipos multifuncionales para lograr resultados comerciales medibles."
+        },
+        "experience": {
+          "title": "Experiencia Profesional",
+          "items": {
+            "sdm": {
+              "primary": "Gerente Senior de Entrega de Servicios",
+              "secondary": "Global Enterprise Solutions · 2020 — Presente",
+              "description": "Liderando un equipo de más de 40 profesionales de servicios en 3 continentes. Responsable de la entrega de servicios gestionados para clientes Fortune 500, superando consistentemente el 99.9% de cumplimiento de SLA."
+            },
+            "lead": {
+              "primary": "Líder de Service Desk",
+              "secondary": "Tech Infrastructure Corp · 2015 — 2020",
+              "description": "Gestionó la transición de los centros de soporte regionales a un centro de servicio global unificado. Implementó la automatización de ServiceNow que redujo el volumen de tickets en un 25% a través de iniciativas de autoservicio."
+            },
+            "analyst": {
+              "primary": "Analista de Operaciones",
+              "secondary": "Strategic Systems Ltd · 2010 — 2015",
+              "description": "Optimizó los flujos de trabajo internos y las estructuras de informes, proporcionando información basada en datos que condujo a un aumento del 15% en la eficiencia operativa."
+            }
+          }
+        },
+        "competencies": {
+          "title": "Competencias Principales",
+          "items": [
+            "Estrategia de Entrega de Servicios",
+            "Gestión de SLA y KPI",
+            "Marco ITIL v4",
+            "Gestión de Partes Interesadas",
+            "Optimización de Procesos",
+            "Liderazgo de Equipos Globales",
+            "Gestión del Cambio"
+          ]
+        },
+        "education": {
+          "title": "Educación",
+          "items": {
+            "btech": {
+              "primary": "Licenciatura en Tecnología - Ingeniería en Electrónica y Comunicaciones",
+              "secondary": "UNIVERSIDAD DE KURUKSHETRA · 2010"
+            }
+          }
+        }
+      },
+      "projects": {
+        "p1": {
+          "title": "Transformación de SLA Empresarial",
+          "category": "Estrategia Operativa",
+          "description": "Rediseñó el ciclo de vida de gestión de incidentes en 6 equipos regionales, reduciendo el tiempo medio de resolución en un 38% mientras se mantenía un cumplimiento del 99.9%."
+        },
+        "p2": {
+          "title": "Migración Global de Service Desk",
+          "category": "Gestión de Proyectos",
+          "description": "Lideró la migración multifase de 50,000 usuarios a una instancia consolidada de ServiceNow, logrando una puntuación CSAT del 92% durante el período de transición."
+        }
+      },
+      "whitepapers": {
+        "n1": {
+          "title": "Escalando la Excelencia del Servicio en Entornos Híbridos",
+          "excerpt": "Estrategias para mantener una calidad de servicio constante en equipos globales distribuidos."
+        }
+      }
+    },
+    "arunabh": {
+      "tagline": "Cerrando la brecha entre la excelencia en ingeniería y la comprensión del usuario.",
+      "bio": "Líder estratégico de documentación enfocado en construir tuberías de Docs-as-Code y equipos de contenido de alto rendimiento. Experto en destilar arquitecturas técnicas complejas en activos de conocimiento accesibles y de alto impacto.",
+      "resumeSections": {
+        "summary": {
+          "title": "Resumen Profesional",
+          "content": "Líder de documentación con más de 12 años de experiencia en redacción técnica, liderazgo de práctica y productividad de desarrolladores. Trato la documentación como un producto, priorizando el valor comercial junto con la calidad del contenido. Construyo equipos que operan con una mentalidad centrada en el producto, integrados en el ciclo de vida del desarrollo, integrados con UX y responsables de los resultados. Actualmente busco oportunidades en liderazgo de documentación, experiencia del desarrollador y estrategia de contenido, tras un año sabático enfocado en IA generativa y herramientas LLM."
+        },
+        "experience": {
+          "title": "Experiencia Profesional",
+          "items": {
+            "director": {
+              "primary": "Director de Tecnología: Documentación",
+              "secondary": "Wizeline · Julio 2018 — Marzo 2023",
+              "description": "Lideró el ciclo de vida comercial de extremo a extremo de la práctica de documentación y productividad de desarrolladores de Wizeline. Reconstruyó la Redacción Técnica de una función de soporte a una práctica centrada en el producto con métricas de valor comercial definidas, posicionamiento de preventa y estándares de entrega de nivel empresarial."
+            },
+            "senior": {
+              "primary": "Redactor Técnico Senior",
+              "secondary": "HCL Technologies Limited · Diciembre 2014 — Marzo 2018",
+              "description": "Documentó módulos específicos de tecnología para una solución de monitoreo de infraestructura de punto único líder en la industria que cubre plataformas en la nube (AWS, Docker, OpenStack, G Suite), sistemas de almacenamiento (Dell EMC, IBM, NetApp, Pure Storage), bases de datos (MySQL, SQL Server, DB2) y aplicaciones empresariales (Cisco UCM, Active Directory, Hyper-V)."
+            },
+            "consultant1": {
+              "primary": "Redactor Técnico – Consultor",
+              "secondary": "InterGlobe Technologies · Agosto 2013 — Abril 2014",
+              "description": "Creó documentación técnica para el usuario final para un sistema de gestión de carga de aviación con sede en Oriente Medio."
+            },
+            "sme": {
+              "primary": "SME – Contenido Técnico",
+              "secondary": "Innodata Inc. · Abril 2012 — Junio 2013",
+              "description": "Se desempeñó como líder de Ingeniería y QA, autorizando y revisando soluciones para libros de texto avanzados de Ciencias de la Computación que cubren estructuras de datos, seguridad de sistemas, arquitectura de sistemas y teoría computacional."
+            },
+            "consultant2": {
+              "primary": "Redactor Técnico – Consultor",
+              "secondary": "AGNITY, Inc · Septiembre 2010 — Julio 2011",
+              "description": "Escribió y mejoró documentos técnicos que incluyen guías de usuario, referencias de API y guías de aprovisionamiento en los dominios de telecomunicaciones, atención médica y redes inteligentes de próxima generación."
+            }
+          }
+        },
+        "competencies": {
+          "title": "Competencias Principales",
+          "items": [
+            "Comunicación Técnica",
+            "Liderazgo de Práctica de Documentación",
+            "Documentación de API",
+            "Experiencia del Desarrollador (DX)",
+            "Docs-as-Code",
+            "Estrategia de Contenido",
+            "Arquitectura de la Información",
+            "Escritura UX",
+            "Desarrollo de Guías de Estilo",
+            "Portales para Desarrolladores",
+            "Fuente Única",
+            "DocOps",
+            "Agile",
+            "Estrategia GTM",
+            "Posicionamiento de Preventa",
+            "Estructuración y Mentoría de Equipos",
+            "Gestión de Partes Interesadas",
+            "Colaboración Multifuncional",
+            "Herramientas de IA Generativa"
+          ]
+        },
+        "education": {
+          "title": "Educación",
+          "items": {
+            "be": {
+              "primary": "Licenciatura en Ingeniería – Ciencias de la Computación e Ingeniería",
+              "secondary": "Universidad Maharshi Dayanand · 2010"
+            }
+          }
+        }
+      },
+      "projects": {
+        "a1": {
+          "title": "[SPIKE] Documentación dirigida por LLM",
+          "category": "Redacción Técnica Next",
+          "description": "Actualmente probando modelos locales y basados en la nube para la viabilidad de la documentación basada en LLM - Gemini, Claude, QWen."
+        },
+        "a2": {
+          "title": "Portales para Desarrolladores",
+          "category": "Experiencia del Desarrollador",
+          "description": "Reimaginó la experiencia del desarrollador en la plataforma de desarrollo para un gigante fintech líder en la industria. Reducción del 60% en las llamadas de los clientes gracias al aumento del tráfico a la plataforma."
+        },
+        "a3": {
+          "title": "Implementación de Docs-as-Code",
+          "category": "Infraestructura",
+          "description": "Arquitectó una tubería de documentación basada en Markdown integrada directamente en los flujos de trabajo de CI/CD, reduciendo la latencia de documento a lanzamiento en un 40%."
+        }
+      },
+      "whitepapers": {
+        "w1": {
+          "title": "[Whitepaper] Cómo los portales para desarrolladores te ayudan a prosperar en la economía de las API",
+          "excerpt": "Punto de vista experto sobre cómo diseñar, desarrollar y mantener un portal para desarrolladores de clase mundial para darle a su API la mejor oportunidad de éxito en la economía de API cada vez más competitiva."
+        },
+        "w3": {
+          "title": "[Blog] 3 tendencias de redacción técnica para mejorar la documentación en 2023",
+          "excerpt": "Desde procesos automatizados, alcance instantáneo y contenido reutilizable hasta el procesamiento del lenguaje natural (NLP), el aprendizaje automático (ML) y la inteligencia artificial (AI) para ayudar a crear contenido central más rápido..."
+        }
+      }
+    }
+  },
+  "extraProjects": {
+    "battery-intelligence": {
+      "title": "Inteligencia de Batería",
+      "description": "Una utilidad simple para entender su archivo HTML powercfg /batteryreport."
+    },
+    "resume-parser": {
+      "title": "Analizador de Currículums - En Progreso",
+      "description": "Una utilidad simple para analizar sus currículums PDF a HTML. Incluye un editor de markdown simple incorporado."
+    },
+    "pdf_to_markdown": {
+      "title": "PDF → Markdown - En Progreso",
+      "description": "Una utilidad simple para convertir archivos PDF basados en texto a Markdown. Incluye un editor de markdown simple incorporado."
+    },
+    "pdf-parser": {
+      "title": "Analizador de PDF - En Progreso",
+      "description": "Una utilidad simple para analizar sus archivos PDF a HTML. Incluye un editor de markdown simple incorporado."
+    }
+  }
+}

@@ -3,23 +3,21 @@
 This guide explains how to maintain and customize your dual-portfolio platform.
 
 ## 1. Editing Content
-Most of the site's content (names, roles, bios, projects, and whitepapers/blogs) is managed in a single file:
-`src/constants.ts`
+The site's content is managed across two main areas: structural data in `src/constants.ts` and translatable text in the localization files.
+
+### Where to find what:
+- **Structural Data (`src/constants.ts`):** IDs, dates, URLs, colors, and section visibility toggles.
+- **Translatable Content (`src/i18n/locales/en.json` & `es.json`):** Names, roles, taglines, bios, project descriptions, and resume text.
 
 ### How to update a Profile:
-Locate the `PROFILES` object in `src/constants.ts`. You can edit the following fields for both `neha` and `arunabh`:
-- `name`: Full display name.
-- `role`: Professional title.
-- `tagline`: The italicized subtitle in the hero section.
-- `bio`: The "Leadership Philosophy" text.
-- `resumeUrl`: Link to your PDF resume (see "Embedding Resumes" below).
-- `whitepapers`: Array of research papers or blog posts (see "Whitepapers and Blogs" below).
+1. **Structural Details:** Locate the `PROFILES` object in `src/constants.ts`. You can edit `accentColor`, `resumeUrl`, `imageUrl`, `email`, and `linkedinUrl`.
+2. **Text Content:** Open `src/i18n/locales/en.json` (or `es.json`) and find the `profiles` section. You can edit:
+   - `name`, `role`, `tagline`, `bio`.
+   - `resumeSections`: Titles and descriptions for each part of the resume.
 
 ### How to add/edit Projects:
-Add or modify objects within the `projects` array. Each project needs:
-- `id`: A unique string (e.g., 'p3').
-- `title`, `category`, `year`, `description`.
-- `tags`: An array of strings for the small labels at the bottom of the card.
+1. **Structure:** Add/modify objects in the `projects` array within `src/constants.ts`. Each project needs a unique `id` (e.g., 'p3').
+2. **Content:** Add the corresponding text for that `id` in the `projects` section of your JSON locale files.
 
 ---
 
@@ -27,10 +25,10 @@ Add or modify objects within the `projects` array. Each project needs:
 The visibility of certain sections is controlled by the presence of data or conditional logic in `src/pages/ProfilePage.tsx`.
 
 ### Resume Sections (Summary, Experience, Education, etc.)
-The resume is now fully HTML-based and dynamic. You can manage sections in `src/constants.ts` within the `resumeSections` array.
-- **To add a section:** Add a new object to the `resumeSections` array.
+The resume is fully dynamic. You manage the structure in `src/constants.ts` and the text in the locale JSON files.
+- **To add a section:** Add a new object to the `resumeSections` array in `constants.ts` and add the corresponding text keys in `en.json`/`es.json`.
 - **To remove a section:** Delete the object from the `resumeSections` array.
-- **To toggle visibility:** Set `isVisible: true` or `false` on any section.
+- **To toggle visibility:** Set `isVisible: true` or `false` on any section in `constants.ts`.
 - **Layouts:** 
     - `layout: 'summary'`: Best for a single paragraph of text.
     - `layout: 'details'`: Best for experience or education with dates and descriptions.
@@ -132,7 +130,45 @@ The "Projects" page is linked from the **footer** of every profile page. It is n
 
 ---
 
-## 8. Deployment
+## 9. Localization (Multi-language Support)
+The site supports multi-language rendering (currently English and Spanish) using `react-i18next`.
+
+### Toggling the Language Switcher
+You can show or hide the language toggle globally in `src/constants.ts`:
+- `LOCALIZATION_ENABLED`: Set to `true` to show the language switcher in the Navbar, or `false` to hide it and lock the site to English.
+
+### How to add/edit Translations:
+Translations are stored in JSON files within `src/i18n/locales/`:
+- `en.json`: English strings.
+- `es.json`: Spanish strings.
+
+**To edit a translation:**
+1. Open the corresponding `.json` file.
+2. Locate the key you want to change (e.g., `"nav": { "portfolio": "..." }`).
+3. Update the value.
+
+**To add a new language:**
+1. Create a new JSON file in `src/i18n/locales/` (e.g., `fr.json`).
+2. Copy the structure from `en.json` and translate the values.
+3. Register the new language in `src/i18n/config.ts`:
+   ```typescript
+   import fr from './locales/fr.json';
+   // ...
+   resources: {
+     en: { translation: en },
+     es: { translation: es },
+     fr: { translation: fr },
+   },
+   ```
+
+### Localizing Content
+The entire site is fully localized. All text content—including bios, project descriptions, and resume items—lives in the JSON locale files.
+1. **To update text:** Edit the values in `src/i18n/locales/en.json` or `es.json`.
+2. **To add new fields:** Add the key-value pair to the JSON files and reference it in the React components using the `t('key.path')` function.
+
+---
+
+## 10. Deployment
 This site is built with Vite and is optimized for GitHub Pages with a custom domain.
 
 ### GitHub Pages Considerations
