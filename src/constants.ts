@@ -65,8 +65,8 @@ export interface ExtraProject {
 export const EXTRA_PROJECTS: ExtraProject[] = [
   {
     id: 'starfield-loadout',
-    title: '',
-    description: '',
+    title: 'Starfield - Weapon Loadout Analyzer',
+    description: 'Utlity that scans screenshots of your weapons, compares to a small DB, and analyzes optimal loadouts.',
     thumbnailUrl: '/extras/starfield-loadout.png',
     path: '/extras/starfield-loadout.html',
     isVisible: true,
@@ -75,8 +75,8 @@ export const EXTRA_PROJECTS: ExtraProject[] = [
   },
   {
     id: 'battery-intelligence',
-    title: '',
-    description: '',
+    title: 'Battery Intelligence Analyzer',
+    description: 'A simple utility to understand your powercfg /batteryreport HTML file.',
     thumbnailUrl: '/extras/battery-intelligence.png',
     path: '/extras/battery-intelligence.html',
     isVisible: true,
@@ -85,8 +85,8 @@ export const EXTRA_PROJECTS: ExtraProject[] = [
   },
   {
     id: 'resume-parser',
-    title: '',
-    description: '',
+    title: 'Resume Parser - In Progress',
+    description: 'A simple utility to parse your PDF resumes to HTML. Includes a built-in simple markdown editor.',
     thumbnailUrl: '/extras/resume-parser.png',
     path: '/extras/resume-parser.html',
     isVisible: true,
@@ -95,8 +95,8 @@ export const EXTRA_PROJECTS: ExtraProject[] = [
   },
   {
     id: 'pdf_to_markdown',
-    title: '',
-    description: '',
+    title: 'PDF → Markdown - In Progress',
+    description: 'A simple utility to convert text based PDF files to Markdown. Includes a built-in simple markdown editor.',
     thumbnailUrl: '/extras/pdf_to_markdown.png',
     path: '/extras/pdf_to_markdown.html',
     isVisible: true,
@@ -105,8 +105,8 @@ export const EXTRA_PROJECTS: ExtraProject[] = [
   },
   {
     id: 'pdf-parser',
-    title: '',
-    description: '',
+    title: 'PDF Parser - In Progress',
+    description: 'A simple utility to parse your PDF files to HTML. Includes a built-in simple markdown editor.',
     thumbnailUrl: '/extras/pdf-parser.png',
     path: '/extras/pdf-parser.html',
     isVisible: true,
