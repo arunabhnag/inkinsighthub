@@ -234,8 +234,6 @@ const DB = {"weapon_types":{"ballistic":{"label":"Ballistic","color":"#8fb8d0"},
 // ══════════════════════════════════════════════
 const TESS_CDN = 'https://unpkg.com/tesseract.js@5/dist/tesseract.min.js';
 const DB_NAME  = 'sfloadout', STORE = 'scripts', KEY = 'tesseract5';
-let Tesseract  = null;
-
 async function bootstrap() {
   document.getElementById('bootErr').style.display   = 'none';
   document.getElementById('bootRetry').style.display = 'none';
@@ -293,13 +291,12 @@ function setBootStatus(msg, pct) {
 function hideBoot() { document.getElementById('boot').classList.add('hidden'); }
 
 function injectScript(code) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const s = document.createElement('script');
     s.textContent = code;
-    s.onload = resolve;
     document.head.appendChild(s);
-    // Inline scripts execute synchronously — resolve immediately
-    resolve();
+    // Inline scripts execute synchronously but Tesseract needs a tick to init
+    setTimeout(resolve, 50);
   });
 }
 
@@ -361,7 +358,13 @@ function enqueue(files) {
 async function runOCR(scan) {
   setOcrBar(true, `Scanning ${scan.name}…`, (ocrDone / Math.max(1, ocrTotal)) * 100);
   try {
-    const worker = await Tesseract.createWorker('eng');
+    if (!window.Tesseract) throw new Error('Tesseract not loaded');
+    const worker = await window.Tesseract.createWorker('eng', 1, {
+      workerPath: 'https://unpkg.com/tesseract.js@5/dist/worker.min.js',
+      langPath:   'https://tessdata.projectnaptha.com/4.0.0',
+      corePath:   'https://unpkg.com/tesseract.js-core@5/tesseract-core-simd-lstm.wasm.js',
+      cacheMethod: 'indexedDB',
+    });
     const { data: { text } } = await worker.recognize(scan.src);
     await worker.terminate();
     scan.weapon  = matchFromOCR(text);

@@ -64,6 +64,16 @@ export interface ExtraProject {
 
 export const EXTRA_PROJECTS: ExtraProject[] = [
   {
+    id: 'starfield-loadout',
+    title: '',
+    description: '',
+    thumbnailUrl: '/extras/starfield-loadout.png',
+    path: '/extras/starfield-loadout.html',
+    isVisible: true,
+    tags: ['Claude', 'Client-Side', 'tesseract.js', 'starfield'],
+    isDefunct: false
+  },
+  {
     id: 'battery-intelligence',
     title: '',
     description: '',
