@@ -242,6 +242,10 @@
     "pdf-parser": {
       "title": "Analizador de PDF - En Progreso",
       "description": "Una utilidad simple para analizar sus archivos PDF a HTML. Incluye un editor de markdown simple incorporado."
+    },
+    "starfield-loadout": {
+      "title": "Starfield - Analizador de Equipamiento",
+      "description": "Utilidad que escanea capturas de pantalla de tus armas, las compara con una pequeña base de datos y analiza los equipamientos óptimos."
     }
   }
 }

@@ -42,7 +42,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ profile }) => {
               {t(`profiles.${profile.id}.name`, { defaultValue: profile.name })}
             </h1>
             <p className="text-2xl md:text-3xl font-display italic text-text-secondary mb-8 leading-relaxed">
-              {t(`profiles.${profile.id}.tagline`)}
+              {t(`profiles.${profile.id}.tagline`, { defaultValue: profile.tagline })}
             </p>
             <div className="flex flex-wrap gap-4">
               <a 
@@ -94,7 +94,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ profile }) => {
       <section className="py-24 px-6 md:px-12 max-w-4xl mx-auto text-center">
         <SectionHeader title={t('sections.approach')} eyebrow={t('sections.philosophy')} accentColor={profile.accentColor} />
         <p className="text-xl md:text-2xl text-text-secondary font-light leading-relaxed">
-          {t(`profiles.${profile.id}.bio`)}
+          {t(`profiles.${profile.id}.bio`, { defaultValue: profile.bio })}
         </p>
       </section>
 
@@ -106,9 +106,9 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ profile }) => {
             {profile.projects.map((project) => (
               <Card 
                 key={project.id}
-                title={t(`profiles.${profile.id}.projects.${project.id}.title`)}
-                subtitle={`${t(`profiles.${profile.id}.projects.${project.id}.category`)} · ${project.year}`}
-                description={t(`profiles.${profile.id}.projects.${project.id}.description`)}
+                title={t(`profiles.${profile.id}.projects.${project.id}.title`, { defaultValue: project.title })}
+                subtitle={`${t(`profiles.${profile.id}.projects.${project.id}.category`, { defaultValue: project.category })} · ${project.year}`}
+                description={t(`profiles.${profile.id}.projects.${project.id}.description`, { defaultValue: project.description })}
                 tags={project.tags}
                 accentColor={profile.accentColor}
               />
@@ -131,10 +131,10 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ profile }) => {
                 >
                   <span className="font-mono text-[10px] text-text-muted uppercase tracking-widest mb-4 block">{paper.date}</span>
                   <h3 className="text-xl font-display font-semibold text-text-primary mb-4">
-                    {t(`profiles.${profile.id}.whitepapers.${paper.id}.title`)}
+                    {t(`profiles.${profile.id}.whitepapers.${paper.id}.title`, { defaultValue: paper.title })}
                   </h3>
                   <p className="text-text-secondary text-sm mb-6 leading-relaxed">
-                    {t(`profiles.${profile.id}.whitepapers.${paper.id}.excerpt`)}
+                    {t(`profiles.${profile.id}.whitepapers.${paper.id}.excerpt`, { defaultValue: paper.excerpt })}
                   </p>
                   <div className="flex gap-4">
                     {paper.mediumUrl && (
@@ -186,8 +186,10 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ profile }) => {
                 
                 {section.layout === 'bullets' ? (
                   <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {t(`profiles.${profile.id}.resumeSections.${section.id}.items`, { returnObjects: true }) instanceof Array && 
-                      (t(`profiles.${profile.id}.resumeSections.${section.id}.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                    {(t(`profiles.${profile.id}.resumeSections.${section.id}.items`, { returnObjects: true }) instanceof Array ? 
+                      (t(`profiles.${profile.id}.resumeSections.${section.id}.items`, { returnObjects: true }) as string[]) : 
+                      section.items.map(i => i.primary)
+                    ).map((item, idx) => (
                       <li key={idx} className="flex items-center gap-3 text-text-secondary text-sm">
                         <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: profile.accentColor }} />
                         {item}
@@ -196,7 +198,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ profile }) => {
                   </ul>
                 ) : section.layout === 'summary' ? (
                   <p className="text-text-secondary leading-relaxed max-w-4xl">
-                    {t(`profiles.${profile.id}.resumeSections.${section.id}.content`)}
+                    {t(`profiles.${profile.id}.resumeSections.${section.id}.content`, { defaultValue: section.items[0]?.primary })}
                   </p>
                 ) : (
                   <div className="space-y-8">
@@ -205,17 +207,17 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ profile }) => {
                         <div className="absolute -left-[5px] top-2 w-2 h-2 rounded-full" style={{ backgroundColor: profile.accentColor }} />
                         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-3">
                           <h5 className="text-text-primary font-semibold text-lg">
-                            {t(`profiles.${profile.id}.resumeSections.${section.id}.items.${item.id}.primary`)}
+                            {t(`profiles.${profile.id}.resumeSections.${section.id}.items.${item.id}.primary`, { defaultValue: item.primary })}
                           </h5>
-                          {item.secondary && (
+                          {(item.secondary || t(`profiles.${profile.id}.resumeSections.${section.id}.items.${item.id}.secondary`)) && (
                             <span className="font-mono text-[10px] text-text-muted uppercase tracking-widest bg-base px-2 py-1 rounded-sm border border-border">
-                              {t(`profiles.${profile.id}.resumeSections.${section.id}.items.${item.id}.secondary`)}
+                              {t(`profiles.${profile.id}.resumeSections.${section.id}.items.${item.id}.secondary`, { defaultValue: item.secondary })}
                             </span>
                           )}
                         </div>
-                        {item.description && (
+                        {(item.description || t(`profiles.${profile.id}.resumeSections.${section.id}.items.${item.id}.description`)) && (
                           <p className="text-text-secondary text-sm leading-relaxed max-w-4xl">
-                            {t(`profiles.${profile.id}.resumeSections.${section.id}.items.${item.id}.description`)}
+                            {t(`profiles.${profile.id}.resumeSections.${section.id}.items.${item.id}.description`, { defaultValue: item.description })}
                           </p>
                         )}
                       </div>

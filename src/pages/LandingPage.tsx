@@ -53,10 +53,10 @@ export const LandingPage: React.FC = () => {
           >
             <div className="w-12 h-[2px] bg-accent-neha mb-8" />
             <h1 className="text-5xl md:text-7xl font-display font-light text-text-primary mb-4 uppercase">
-              {t('landing.neha.name').split(' ').slice(0, 1).join(' ')} <br /> {t('landing.neha.name').split(' ').slice(1).join(' ')}
+              {t('landing.neha.name', { defaultValue: 'NEHA BABU NAG' }).split(' ').slice(0, 1).join(' ')} <br /> {t('landing.neha.name', { defaultValue: 'NEHA BABU NAG' }).split(' ').slice(1).join(' ')}
             </h1>
             <p className="text-accent-neha font-mono text-xs uppercase tracking-[0.25em] mb-4">
-              {t('landing.neha.role')}
+              {t('landing.neha.role', { defaultValue: 'Service Delivery Leadership' })}
             </p>
             <div className="flex items-center gap-2 text-accent-neha/70 font-mono text-[9px] uppercase tracking-widest mb-12">
               <MapPin size={12} />
@@ -84,10 +84,10 @@ export const LandingPage: React.FC = () => {
           >
             <div className="w-12 h-[2px] bg-accent-arunabh mb-8" />
             <h1 className="text-5xl md:text-7xl font-display font-light text-text-primary mb-4 uppercase">
-              {t('landing.arunabh.name').split(' ').slice(0, 1).join(' ')} <br /> {t('landing.arunabh.name').split(' ').slice(1).join(' ')}
+              {t('landing.arunabh.name', { defaultValue: 'ARUNABH NAG' }).split(' ').slice(0, 1).join(' ')} <br /> {t('landing.arunabh.name', { defaultValue: 'ARUNABH NAG' }).split(' ').slice(1).join(' ')}
             </h1>
             <p className="text-accent-arunabh font-mono text-xs uppercase tracking-[0.25em] mb-4">
-              {t('landing.arunabh.role')}
+              {t('landing.arunabh.role', { defaultValue: 'Technical Writing Leadership' })}
             </p>
             <div className="flex items-center gap-2 text-accent-arunabh/70 font-mono text-[9px] uppercase tracking-widest mb-12">
               <MapPin size={12} />

@@ -55,7 +55,7 @@ export const ProjectsPage: React.FC = () => {
               <div className="aspect-video relative overflow-hidden">
                 <img 
                   src={project.thumbnailUrl} 
-                  alt={t(`extraProjects.${project.id}.title`)}
+                  alt={t(`extraProjects.${project.id}.title`, { defaultValue: project.title })}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                   referrerPolicy="no-referrer"
                 />
@@ -71,10 +71,10 @@ export const ProjectsPage: React.FC = () => {
                       {t('projectsPage.defunct')}
                     </span>
                   )}
-                  {t(`extraProjects.${project.id}.title`)}
+                  {t(`extraProjects.${project.id}.title`, { defaultValue: project.title })}
                 </h3>
                 <p className="text-text-secondary text-sm leading-relaxed mb-6">
-                  {t(`extraProjects.${project.id}.description`)}
+                  {t(`extraProjects.${project.id}.description`, { defaultValue: project.description })}
                 </p>
                 {project.tags && project.tags.length > 0 && (
                   <div className="flex flex-wrap gap-2 mb-6">
