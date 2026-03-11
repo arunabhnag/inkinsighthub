@@ -66,7 +66,7 @@ export const EXTRA_PROJECTS: ExtraProject[] = [
   {
     id: 'starfield-loadout',
     title: 'Starfield - Weapon Loadout Analyzer',
-    description: 'Utlity that scans screenshots of your weapons, compares to a small DB, and analyzes optimal loadouts.',
+    description: 'Utility that scans screenshots of your weapons, compares to a small DB, and analyzes optimal loadouts.',
     thumbnailUrl: '/extras/starfield-loadout.png',
     path: '/extras/starfield-loadout.html',
     isVisible: true,

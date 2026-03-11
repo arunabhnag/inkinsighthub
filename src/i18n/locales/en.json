@@ -227,8 +227,12 @@
     }
   },
   "extraProjects": {
+    "starfield-loadout": {
+      "title": "Starfield - Weapon Loadout Analyzer",
+      "description": "Utility that scans screenshots of your weapons, compares to a small DB, and analyzes optimal loadouts."
+    },
     "battery-intelligence": {
-      "title": "Battery Intelligence",
+      "title": "Battery Intelligence Analyzer",
       "description": "A simple utility to understand your powercfg /batteryreport HTML file."
     },
     "resume-parser": {
