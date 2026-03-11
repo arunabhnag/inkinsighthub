@@ -1,6 +1,7 @@
 # InkInsightHub — Management Guide
 
 This guide explains how to maintain and customize your dual-portfolio platform.
+**Note**: This document is written and maintained by Google AI Studio using the Gemini Next model.
 
 ## 1. Editing Content
 The site's content is managed across two main areas: structural data in `src/constants.ts` and translatable text in the localization files.
