@@ -227,6 +227,10 @@
     }
   },
   "extraProjects": {
+    "newcombs_paradox_sim": {
+      "title": "Simulador de Newcombs Paradox",
+      "description": "Simulador para pruebas resultos de Newcombs Paradox."
+    },
     "battery-intelligence": {
       "title": "Inteligencia de Batería",
       "description": "Una utilidad simple para entender su archivo HTML powercfg /batteryreport."

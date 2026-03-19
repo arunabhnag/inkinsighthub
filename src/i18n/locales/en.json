@@ -227,6 +227,10 @@
     }
   },
   "extraProjects": {
+    "newcombs_paradox_sim": {
+      "title": "Newcombs Paradox Simulator",
+      "description": "Simulator to test results from Newcombs Paradox."
+    },
     "starfield-loadout": {
       "title": "Starfield - Weapon Loadout Analyzer",
       "description": "Utility that scans screenshots of your weapons, compares to a small DB, and analyzes optimal loadouts."

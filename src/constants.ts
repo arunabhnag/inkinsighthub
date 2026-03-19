@@ -64,6 +64,16 @@ export interface ExtraProject {
 
 export const EXTRA_PROJECTS: ExtraProject[] = [
   {
+    id: 'newcombs_paradox_sim',
+    title: 'Newcombs Paradox Simulator',
+    description: 'Simulator to test results from Newcombs Paradox.',
+    thumbnailUrl: '/extras/newcombs_paradox_sim.png',
+    path: '/extras/newcombs_paradox_sim.html',
+    isVisible: true,
+    tags: ['Claude', 'Client-Side'],
+    isDefunct: false
+  },
+  {
     id: 'starfield-loadout',
     title: 'Starfield - Weapon Loadout Analyzer',
     description: 'Utility that scans screenshots of your weapons, compares to a small DB, and analyzes optimal loadouts.',
